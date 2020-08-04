@@ -1,0 +1,31 @@
+
+<style>
+
+    .tox{
+        height: 700px !important;
+    }
+</style>
+<form id="rule-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="general/config/other">
+
+
+
+    <div class="form-group">
+
+        <div class="col-xs-12 col-sm-2" style="width: 100%;">
+            {:Form::editor('row[rule_value]', $result['rule_value'], ['data-rule'=>'rule_value'])}
+<!--            <span>开始时间|结束时间</span>-->
+        </div>
+    </div>
+
+
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+
+
+</form>

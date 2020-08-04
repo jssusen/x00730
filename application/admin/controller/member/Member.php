@@ -23,6 +23,7 @@ class Member extends Backend
      */
     protected $model = null;
 //    protected $relationSearch = true;
+    protected $searchFields = 'id,user_name,realname,mobile';
     public function _initialize()
     {
         parent::_initialize();

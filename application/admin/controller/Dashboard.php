@@ -4,6 +4,7 @@ namespace app\admin\controller;
 
 use app\common\controller\Backend;
 use think\Config;
+use think\Db;
 
 /**
  * 控制台
@@ -33,17 +34,32 @@ class Dashboard extends Backend
         Config::parse($addonComposerCfg, "json", "composer");
         $config = Config::get("composer");
         $addonVersion = isset($config['version']) ? $config['version'] : __('Unknown');
+
+        $totaluser =Db::name("member")->count();
+        $totalviews =Db::name("member")->where("is_valid",1)->count();
+        $totalorder =Db::name("match")->count();
+        $totalorderamount =Db::name("match")->sum("money");
+
+        $todayusersignup =Db::name("member")->whereTime("createtime","today")->count();
+        $todayuserlogin = Db::name("member")->whereTime("createtime","month")->count();
+
+        $sevendnu =Db::name("member")->whereTime("createtime","week")->count();
+
+        $sevendau =Db::name("match")->whereTime("createtime","month")->count();
+
+        $todayorder =Db::name("match")->whereTime("createtime","today")->count();
+        $unsettleorder =Db::name("match")->whereTime("createtime","week")->count();
         $this->view->assign([
-            'totaluser'        => 35200,
-            'totalviews'       => 219390,
-            'totalorder'       => 32143,
-            'totalorderamount' => 174800,
-            'todayuserlogin'   => 321,
-            'todayusersignup'  => 430,
-            'todayorder'       => 2324,
-            'unsettleorder'    => 132,
-            'sevendnu'         => '80%',
-            'sevendau'         => '32%',
+            'totaluser'        => $totaluser,
+            'totalviews'       => $totalviews,
+            'totalorder'       => $totalorder,
+            'totalorderamount' => $totalorderamount,
+            'todayuserlogin'   => $todayuserlogin,
+            'todayusersignup'  => $todayusersignup,
+            'todayorder'       => $todayorder,
+            'unsettleorder'    => $unsettleorder,
+            'sevendnu'         => $sevendnu,
+            'sevendau'         => $sevendau,
             'paylist'          => $paylist,
             'createlist'       => $createlist,
             'addonversion'       => $addonVersion,

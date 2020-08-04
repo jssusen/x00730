@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:5:{s:77:"G:\phpstudy\WWW\kj\public/../application/admin\view\general\config\index.html";i:1595413830;s:61:"G:\phpstudy\WWW\kj\application\admin\view\layout\default.html";i:1588765311;s:58:"G:\phpstudy\WWW\kj\application\admin\view\common\meta.html";i:1588765311;s:67:"G:\phpstudy\WWW\kj\application\admin\view\general\config\other.html";i:1596436920;s:60:"G:\phpstudy\WWW\kj\application\admin\view\common\script.html";i:1588765311;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\phpstudy\WWW\kj\public/../application/admin\view\general\config\index.html";i:1596521431;s:61:"G:\phpstudy\WWW\kj\application\admin\view\layout\default.html";i:1588765311;s:58:"G:\phpstudy\WWW\kj\application\admin\view\common\meta.html";i:1588765311;s:67:"G:\phpstudy\WWW\kj\application\admin\view\general\config\other.html";i:1596523048;s:66:"G:\phpstudy\WWW\kj\application\admin\view\general\config\rule.html";i:1596523575;s:60:"G:\phpstudy\WWW\kj\application\admin\view\common\script.html";i:1588765311;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -58,7 +58,7 @@
         <?php echo build_heading(null, false); ?>
         <ul id="myTab" class="nav nav-tabs">
             <li class="active"><a href="#program" data-toggle="tab">基础配置</a></li>
-            <li><a href="#other" data-toggle="tab">其它配置</a></li>
+            <li><a href="#other" data-toggle="tab">规则设置</a></li>
 
 
         </ul>
@@ -68,7 +68,7 @@
         <div id="myTabContent" class="tab-content">
 
             <div class="tab-pane fade in active " id="program">
-                 <form id="other-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="../general/config/other">
+                 <form id="other-form" class="form-horizontal" data-toggle="validator" method="POST" action="../general/config/other">
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">客服微信</label>
@@ -85,7 +85,7 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">新用户注册送</label>
+        <label class="control-label col-xs-12 col-sm-2">新用户注册每日送</label>
         <div class="col-xs-12 col-sm-2">
             <?php echo Form::text('row[money_save]', $result['money_save'], ['data-rule'=>'required']); ?>
         </div>
@@ -98,6 +98,40 @@
             <span>最低充值|最高充值</span>
         </div>
     </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">系统对公账户</label>
+        <div class="col-xs-12 col-sm-2" style="width: 500px">
+            <?php echo Form::text('row[system_account]', $result['system_account'], ['data-rule'=>'required']); ?>
+            <span>系统对公账户|系统对公银行|支付宝|账户名</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">提现时间</label>
+        <div class="col-xs-12 col-sm-2">
+            <?php echo Form::text('row[withdrawal_time]', $result['withdrawal_time'], ['data-rule'=>'required']); ?>
+            <span>开始时间|结束时间</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">直推赠送</label>
+        <div class="col-xs-12 col-sm-2">
+            <?php echo Form::text('row[recommend_user]', $result['recommend_user'], ['data-rule'=>'required']); ?>
+            <span>每直推一名有效会员奖励</span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">提现额度</label>
+        <div class="col-xs-12 col-sm-2" style="width: 500px">
+            <?php echo Form::text('row[withdrawal_range]', $result['withdrawal_range'], ['data-rule'=>'required']); ?>
+            <span>最低提现额度|每天提现最低次数|首次提现后收取的手续费(填整数)</span>
+        </div>
+    </div>
+
 
 
 
@@ -114,7 +148,37 @@
             </div>
 
             <div class="tab-pane fade in  " id="other">
-               125125
+                
+<style>
+
+    .tox{
+        height: 700px !important;
+    }
+</style>
+<form id="rule-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="general/config/other">
+
+
+
+    <div class="form-group">
+
+        <div class="col-xs-12 col-sm-2" style="width: 100%;">
+            <?php echo Form::editor('row[rule_value]', $result['rule_value'], ['data-rule'=>'rule_value']); ?>
+<!--            <span>开始时间|结束时间</span>-->
+        </div>
+    </div>
+
+
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed"><?php echo __('OK'); ?></button>
+            <button type="reset" class="btn btn-default btn-embossed"><?php echo __('Reset'); ?></button>
+        </div>
+    </div>
+
+
+</form>
             </div>
 
 

@@ -1,4 +1,4 @@
-<form id="other-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="../general/config/other">
+<form id="other-form" class="form-horizontal" data-toggle="validator" method="POST" action="../general/config/other">
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">客服微信</label>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">新用户注册送</label>
+        <label class="control-label col-xs-12 col-sm-2">新用户注册每日送</label>
         <div class="col-xs-12 col-sm-2">
             {:Form::text('row[money_save]', $result['money_save'], ['data-rule'=>'required'])}
         </div>
@@ -28,6 +28,40 @@
             <span>最低充值|最高充值</span>
         </div>
     </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">系统对公账户</label>
+        <div class="col-xs-12 col-sm-2" style="width: 500px">
+            {:Form::text('row[system_account]', $result['system_account'], ['data-rule'=>'required'])}
+            <span>系统对公账户|系统对公银行|支付宝|账户名</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">提现时间</label>
+        <div class="col-xs-12 col-sm-2">
+            {:Form::text('row[withdrawal_time]', $result['withdrawal_time'], ['data-rule'=>'required'])}
+            <span>开始时间|结束时间</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">直推赠送</label>
+        <div class="col-xs-12 col-sm-2">
+            {:Form::text('row[recommend_user]', $result['recommend_user'], ['data-rule'=>'required'])}
+            <span>每直推一名有效会员奖励</span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">提现额度</label>
+        <div class="col-xs-12 col-sm-2" style="width: 500px">
+            {:Form::text('row[withdrawal_range]', $result['withdrawal_range'], ['data-rule'=>'required'])}
+            <span>最低提现额度|每天提现最低次数|首次提现后收取的手续费(填整数)</span>
+        </div>
+    </div>
+
 
 
 

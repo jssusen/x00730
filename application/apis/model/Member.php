@@ -31,7 +31,6 @@ class Member extends  BaseModel
            $data["login_ip"]=Request::instance()->ip();
            $data["share_code"]= create_invite_code();
            $data["member_group_id"]=MemberGroup::min("id");
-           $data["member_group_id"]=MemberGroup::min("id");
            $data["avatarimage"]="/avatar/avatar.jpg";
            unset($data["version"]);
        }

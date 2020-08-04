@@ -33,7 +33,6 @@ class Member extends BaseController
         (new UserInfo())->goCheck();
          $data =  $this->request->param();
          $user = MemberModel::memberInfo($data,"id,mobile,avatarimage,status,member_group_id,share_income");
-
          if(!$user["status"]) return $this->error("账户被封禁");
          $user["data"]["member_group_name"]=MemberGroup::getTitle($user["data"]["member_group_id"]);
          return $this->success("获取成功",$user["data"]);
@@ -124,7 +123,7 @@ class Member extends BaseController
         if (!$user) return $this->error("该手机号码未注册");
         if(saltPassword($data["password"])!==$user["password"]){return $this->error("密码不正确");}
         if(!$user["status"]){
-            Db::name("member")->where("id",$user["id"])->update(["token"=>""]);
+//            Db::name("member")->where("id",$user["id"])->update(["token"=>""]);
             return $this->error("账户被封禁");
         }
         $isOk =  $this->member->updataUserLoginTime($user["id"]);
@@ -135,6 +134,7 @@ class Member extends BaseController
     public function register()
     {
         (new  RegisterSave())->goCheck();
+
          if (!setting("website_open")["website_open"]) return $this->error("暂时不开放注册");
          $data =  $this->request->param();
          $isUser = $this->member->findUserMobile($data["mobile"],"mobile");
@@ -143,10 +143,11 @@ class Member extends BaseController
          if (!$isShare_code) return $this->error("邀请码不正确");
          if ($isShare_code["status"]!=1) return $this->error("该邀请码用户被封禁");
 
+
          $data["re_id"]=$isShare_code["id"];
          $data["re_level"]=$isShare_code["re_level"]+1;
          $data['re_path'] = $isShare_code['re_path'] . $isShare_code['id'] . ',';
-         $data['re_path'] = $isShare_code['re_path'] . $isShare_code['id'] . ',';
+
          $token = $this->member->createrUser($data);
          if ($token){
              return $this->success("注册成功",$token);

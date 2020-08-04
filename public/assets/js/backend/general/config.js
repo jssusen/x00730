@@ -43,6 +43,8 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
             // 为表格绑定事件
             Table.api.bindevent(table);
 
+            Form.api.bindevent("form[role=form]");
+
             $("form.edit-form").data("validator-options", {
                 display: function (elem) {
                     return $(elem).closest('tr').find("td:first").text();

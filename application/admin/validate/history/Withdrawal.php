@@ -1,10 +1,10 @@
 <?php
 
-namespace app\admin\validate\order;
+namespace app\admin\validate\history;
 
 use think\Validate;
 
-class Matched extends Validate
+class Withdrawal extends Validate
 {
     /**
      * 验证规则

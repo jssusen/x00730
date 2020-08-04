@@ -9,22 +9,23 @@ use think\Db;
  *
  * @icon fa fa-circle-o
  */
-class Invest extends Backend
+class Withdrawal extends Backend
 {
     
     /**
-     * Invest模型对象
-     * @var \app\admin\model\history\Invest
+     * Withdrawal模型对象
+     * @var \app\admin\model\history\Withdrawal
      */
     protected $model = null;
 
     public function _initialize()
     {
         parent::_initialize();
-        $this->model = new \app\admin\model\history\Invest;
+        $this->model = new \app\admin\model\history\Withdrawal;
         $this->view->assign("typeList", $this->model->getTypeList());
         $this->view->assign("isPayList", $this->model->getIsPayList());
     }
+
     public function index()
     {
         //设置过滤方法
@@ -48,7 +49,6 @@ class Invest extends Backend
                 ->limit($offset, $limit)
                 ->select();
             $list = collection($list)->toArray();
-
             $notReviewed = $this->model->where("is_pay","0")->sum("money");
             $agreed = $this->model->where("is_pay","1")->sum("money");
             $refuse = $this->model->where("is_pay","2")->sum("money");
@@ -65,7 +65,6 @@ class Invest extends Backend
         }
         return $this->view->fetch();
     }
-
 
     public function edit($ids = null)
     {
@@ -85,8 +84,8 @@ class Invest extends Backend
                 $params = $this->preExcludeFields($params);
                 $result = false;
                 if ($row["is_pay"]==1||$row["is_pay"]==2){
-                 $this->error("不可多次操作");
-              }
+                    $this->error("不可多次操作");
+                }
                 Db::startTrans();
                 try {
                     //是否采用模型验证
@@ -94,9 +93,6 @@ class Invest extends Backend
                         $name = str_replace("\\model\\", "\\validate\\", get_class($this->model));
                         $validate = is_bool($this->modelValidate) ? ($this->modelSceneValidate ? $name . '.edit' : $name) : $this->modelValidate;
                         $row->validateFailException(true)->validate($validate);
-                    }
-                    if ($params["is_pay"]==1){
-                        Db::name("member")->where("id",$params["uid"])->setInc("integrals",$params["money"]);
                     }
 
                     $result = $row->allowField(true)->save($params);
@@ -122,10 +118,6 @@ class Invest extends Backend
         $this->view->assign("row", $row);
         return $this->view->fetch();
     }
-
-
-
-    
     /**
      * 默认生成的控制器所继承的父类中有index/add/edit/del/multi五个基础方法、destroy/restore/recyclebin三个回收站方法
      * 因此在当前控制器中可不用编写增删改查的代码,除非需要自己控制这部分逻辑

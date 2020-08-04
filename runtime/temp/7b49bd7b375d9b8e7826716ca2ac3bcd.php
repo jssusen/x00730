@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"G:\phpstudy\WWW\kj\public/../application/admin\view\dashboard\index.html";i:1588765311;s:61:"G:\phpstudy\WWW\kj\application\admin\view\layout\default.html";i:1588765311;s:58:"G:\phpstudy\WWW\kj\application\admin\view\common\meta.html";i:1588765311;s:60:"G:\phpstudy\WWW\kj\application\admin\view\common\script.html";i:1588765311;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:72:"G:\phpstudy\WWW\kj\public/../application/admin\view\dashboard\index.html";i:1596534288;s:61:"G:\phpstudy\WWW\kj\application\admin\view\layout\default.html";i:1588765311;s:58:"G:\phpstudy\WWW\kj\application\admin\view\common\meta.html";i:1588765311;s:60:"G:\phpstudy\WWW\kj\application\admin\view\common\script.html";i:1588765311;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -229,7 +229,7 @@
                             <span class="sm-st-icon st-violet"><i class="fa fa-book"></i></span>
                             <div class="sm-st-info">
                                 <span><?php echo $totalviews; ?></span>
-                                <?php echo __('Total view'); ?>
+                                有效用户
                             </div>
                         </div>
                     </div>
@@ -247,7 +247,7 @@
                             <span class="sm-st-icon st-green"><i class="fa fa-cny"></i></span>
                             <div class="sm-st-info">
                                 <span><?php echo $totalorderamount; ?></span>
-                                <?php echo __('Total order amount'); ?>
+                                订单金额总数
                             </div>
                         </div>
                     </div>
@@ -275,7 +275,7 @@
                                         <div class="stat-icon"><i class="fa fa-shopping-cart"></i></div>
                                         <div class="stat">
                                             <div class="value"> <?php echo $todayuserlogin; ?></div>
-                                            <div class="name"> <?php echo __('Today user login'); ?></div>
+                                            <div class="name">本月注册</div>
                                         </div>
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-success" style="width: 25%"></div>
@@ -295,7 +295,7 @@
                                         <div class="stat-icon"><i class="fa fa-users"></i></div>
                                         <div class="stat">
                                             <div class="value"> <?php echo $unsettleorder; ?></div>
-                                            <div class="name"> <?php echo __('Unsettle order'); ?></div>
+                                            <div class="name"> 本周订单</div>
                                         </div>
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-success" style="width: 25%"></div>
@@ -305,7 +305,7 @@
                                         <div class="stat-icon"><i class="fa fa-list-alt"></i></div>
                                         <div class="stat">
                                             <div class="value"> <?php echo $sevendnu; ?></div>
-                                            <div class="name"> <?php echo __('Seven dnu'); ?></div>
+                                            <div class="name"> 本周注册</div>
                                         </div>
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-success" style="width: 25%"></div>
@@ -315,7 +315,7 @@
                                         <div class="stat-icon"><i class="fa fa-dollar"></i></div>
                                         <div class="stat">
                                             <div class="value"> <?php echo $sevendau; ?></div>
-                                            <div class="name"> <?php echo __('Seven dau'); ?></div>
+                                            <div class="name"> 本月订单</div>
                                         </div>
                                         <div class="progress">
                                             <div class="progress-bar progress-bar-success" style="width: 25%"></div>

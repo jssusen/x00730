@@ -90,7 +90,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         // {field: 'online_time', title: __('Online_time'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
                         // {field: 'first_sell', title: __('First_sell')},
                         // {field: 'effective', title: __('Effective')},
-
+                        {field: 'is_valid', title: __('is_valid'), searchList: {"0":__('is_valid 0'),"1":__('is_valid 1')}, formatter: Table.api.formatter.label},
 
                         {field: 'operate', title: __('Operate'), table: table,
                             events: Table.api.events.operate,

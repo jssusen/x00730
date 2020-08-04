@@ -41,14 +41,12 @@ class Match extends Backend
             $total = $this->model
                 ->with("user,dog")
                 ->where($where)
-                ->where(["order_type"=>"1"])
                 ->order($sort, $order)
                 ->count();
 
             $list = $this->model
                 ->with("user,dog")
                 ->where($where)
-                ->where(["order_type"=>"1"])
                 ->order($sort, $order)
                 ->limit($offset, $limit)
                 ->select();

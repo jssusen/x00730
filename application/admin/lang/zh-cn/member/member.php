@@ -41,5 +41,8 @@ return [
     'Share_income'      => '推广收益',
     'Robber'            => '抢购优先',
     'Robber 0'          => '正常',
-    'Robber 1'          => '优先'
+    'Robber 1'          => '优先',
+    "is_valid"          =>"是否为有效会员",
+    "is_valid 0"          =>"否",
+    "is_valid 1"          =>"是",
 ];

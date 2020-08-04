@@ -58,6 +58,7 @@ class Config extends Backend
 //               }
 //                $this->error("未设置");
 //             }
+
             $set = $this->saveValue($params);
             if(!empty($set)) {
                 $this->success('保存成功');

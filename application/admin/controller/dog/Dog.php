@@ -19,6 +19,7 @@ class Dog extends Backend
      */
     protected $model = null;
 
+    protected $searchFields = 'id,title';
     public function _initialize()
     {
         parent::_initialize();
@@ -150,20 +151,6 @@ class Dog extends Backend
     }
 
 
-    public function abcd(){
-
-        $a =1596364496;
-
-        $b = 1596450956;
-
-        dump(($b-$a)/86400);
-
-//        $a =1596272640;
-//        $b =1596445445;
-//        return dump(($b-$a)%86400);
-
-
-    }
 
     protected function selectpage()
     {
@@ -244,7 +231,7 @@ class Dog extends Backend
                 unset($item['password'], $item['salt']);
                 $list[] = [
                     $primarykey => isset($item[$primarykey]) ? $item[$primarykey] : '',
-                    $field => isset($item[$field]) ? $item[$field].'：'.$item["price"].'~'.$item["price2"] : '',
+                    $field => isset($item[$field]) ? $item[$field].'：'.$item["price"] : '',
                     'pid'       => isset($item['pid']) ? $item['pid'] : 0
                 ];
 
