@@ -1,0 +1,43 @@
+<form id="other-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="../general/config/other">
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">客服微信</label>
+        <div class="col-xs-12 col-sm-2">
+            {:Form::text('row[wx_number]', $result['wx_number'], ['data-rule'=>'required'])}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">开放注册:</label>
+        <div class="col-xs-12 col-sm-2">
+            {:build_radios('row[website_open]', ['0'=>'不开放', '1'=>'开放'], !empty($result['website_open']) ? $result['website_open'] : 0)}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">新用户注册送</label>
+        <div class="col-xs-12 col-sm-2">
+            {:Form::text('row[money_save]', $result['money_save'], ['data-rule'=>'required'])}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">充值范围</label>
+        <div class="col-xs-12 col-sm-2">
+            {:Form::text('row[invest_scope]', $result['invest_scope'], ['data-rule'=>'required'])}
+            <span>最低充值|最高充值</span>
+        </div>
+    </div>
+
+
+
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed ">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+
+
+</form>

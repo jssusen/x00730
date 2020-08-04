@@ -1,0 +1,36 @@
+[ 2020-07-21T16:35:31+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-07-21T16:35:31+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-07-21T16:35:31+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-07-21T16:35:31+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-07-21T16:41:56+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-07-21T16:41:56+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-07-21T16:41:56+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-07-21T16:41:56+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-07-21T16:42:22+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-07-21T16:42:22+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-07-21T16:42:22+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002000s ]
+[ 2020-07-21T16:42:22+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-07-21T16:43:47+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-07-21T16:43:47+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-07-21T16:43:47+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-07-21T16:43:47+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-07-21T16:45:24+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-07-21T16:45:24+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-07-21T16:45:24+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-07-21T16:45:24+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-07-21T16:52:28+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-07-21T16:52:28+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-07-21T16:52:28+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002000s ]
+[ 2020-07-21T16:52:28+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-07-21T16:52:55+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+[ 2020-07-21T16:52:55+08:00 ][ info ] [ CACHE ] INIT File
+[ 2020-07-21T16:52:55+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ 2020-07-21T16:52:55+08:00 ][ info ] [ DB ] INIT mysql
+[ 2020-07-21T16:52:55+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\newInfo\application\admin\lang/zh-cn.php
