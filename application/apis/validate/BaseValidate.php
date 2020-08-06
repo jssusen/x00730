@@ -24,8 +24,16 @@ class BaseValidate extends  Validate
         }else{
             return false;
         }
+    }
 
-
+    protected function isType($value)
+    {
+        if (in_array($value,[1,2]))
+        {
+            return true;
+        }else{
+            return false;
+        }
     }
 
     protected function isInt($value)

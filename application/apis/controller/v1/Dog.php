@@ -10,7 +10,9 @@ use app\apis\validate\Apply;
 use app\apis\model\History;
 use app\apis\model\Robbing;
 use app\apis\model\Matched;
+use app\apis\model\Match;
 use app\apis\validate\AdoptDog;
+use app\apis\validate\HireItc;
 use think\Db;
 use think\Queue;
 
@@ -22,6 +24,41 @@ class Dog extends BaseController
         parent::_initialize();
         $this->dog =new DogModel();
     }
+    //体验机接口
+    public function getExperienceMachine(){
+        (new Token())->goCheck();
+        $data =  $this->request->param();
+        $user = Member::memberInfo($data,"id,status");
+        if(!$user["status"]) return $this->error("账户被封禁");
+        $dog = $this->dog->getExperienceMachine();
+        return $this->success("获取成功",$dog);
+    }
+
+    //租赁接口
+    public function getHireItc(){
+        (new HireItc())->goCheck();
+        $data =  $this->request->param();
+        $user = Member::memberInfo($data,"id,status");
+        if(!$user["status"]) return $this->error("账户被封禁");
+        $dog =$this->dog->getTypeDog($data);
+        return $this->success("获取成功",$dog);
+    }
+
+
+    //最近itc接口
+    public function recentlyItc(){
+        (new Token())->goCheck();
+        $data =  $this->request->param();
+        $user = Member::memberInfo($data,"id,status");
+        if(!$user["status"]) return $this->error("账户被封禁");
+        $list = Match::recentlyItc();
+        foreach ($list as $k){
+           $k["mobile"]=encryptTel($k["mobile"]);
+        }
+        return $this->success("获取成功",$list);
+    }
+
+
     //获取产品列表
     public function getDogList()
     {
@@ -29,9 +66,14 @@ class Dog extends BaseController
         $data =  $this->request->param();
         $user = Member::memberInfo($data,"id,status");
         if(!$user["status"]) return $this->error("账户被封禁");
-        $list =  $this->dog->getDogList($user["data"]["id"]);
-        return $this->success("获取成功",$list);
+
+//        $list =  $this->dog->getDogList($user["data"]["id"]);
+//        return $this->success("获取成功",$list);
     }
+
+
+
+
     //预约
     public function apply(){
         (new Apply())->goCheck();
@@ -102,6 +144,9 @@ class Dog extends BaseController
 
 
     }
+
+
+
     //查询抢购结果
     public function adopt_dog(){
         ((new AdoptDog))->goCheck();

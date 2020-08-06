@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\phpstudy\WWW\kj\public/../application/admin\view\general\config\index.html";i:1596521431;s:61:"G:\phpstudy\WWW\kj\application\admin\view\layout\default.html";i:1588765311;s:58:"G:\phpstudy\WWW\kj\application\admin\view\common\meta.html";i:1588765311;s:67:"G:\phpstudy\WWW\kj\application\admin\view\general\config\other.html";i:1596523048;s:66:"G:\phpstudy\WWW\kj\application\admin\view\general\config\rule.html";i:1596523575;s:60:"G:\phpstudy\WWW\kj\application\admin\view\common\script.html";i:1588765311;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:6:{s:77:"G:\phpstudy\WWW\kj\public/../application/admin\view\general\config\index.html";i:1596521431;s:61:"G:\phpstudy\WWW\kj\application\admin\view\layout\default.html";i:1588765311;s:58:"G:\phpstudy\WWW\kj\application\admin\view\common\meta.html";i:1588765311;s:67:"G:\phpstudy\WWW\kj\application\admin\view\general\config\other.html";i:1596611869;s:66:"G:\phpstudy\WWW\kj\application\admin\view\general\config\rule.html";i:1596523575;s:60:"G:\phpstudy\WWW\kj\application\admin\view\common\script.html";i:1588765311;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -77,6 +77,16 @@
         </div>
     </div>
 
+     <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2"   >短信配置</label>
+        <div class="col-xs-12 col-sm-2" style="width: 700px"   >
+            <?php echo Form::text('row[chit_set]', $result['chit_set'], ['data-rule'=>'required']); ?>
+	     <span>短信签名|短信账户|网关ID|MD5密码</span>
+        </div>
+    </div>
+
+
+
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">开放注册:</label>
         <div class="col-xs-12 col-sm-2">
@@ -103,7 +113,7 @@
         <label class="control-label col-xs-12 col-sm-2">系统对公账户</label>
         <div class="col-xs-12 col-sm-2" style="width: 500px">
             <?php echo Form::text('row[system_account]', $result['system_account'], ['data-rule'=>'required']); ?>
-            <span>系统对公账户|系统对公银行|支付宝|账户名</span>
+            <span>系统对公银行|系统对公账户|账户名</span>
         </div>
     </div>
 

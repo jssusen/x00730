@@ -7,6 +7,16 @@
         </div>
     </div>
 
+     <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2"   >短信配置</label>
+        <div class="col-xs-12 col-sm-2" style="width: 700px"   >
+            {:Form::text('row[chit_set]', $result['chit_set'], ['data-rule'=>'required'])}
+	     <span>短信签名|短信账户|网关ID|MD5密码</span>
+        </div>
+    </div>
+
+
+
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2">开放注册:</label>
         <div class="col-xs-12 col-sm-2">
@@ -33,7 +43,7 @@
         <label class="control-label col-xs-12 col-sm-2">系统对公账户</label>
         <div class="col-xs-12 col-sm-2" style="width: 500px">
             {:Form::text('row[system_account]', $result['system_account'], ['data-rule'=>'required'])}
-            <span>系统对公账户|系统对公银行|支付宝|账户名</span>
+            <span>系统对公银行|系统对公账户|账户名</span>
         </div>
     </div>
 

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"G:\phpstudy\WWW\kj\public/../application/admin\view\member\member\edit.html";i:1596424440;s:61:"G:\phpstudy\WWW\kj\application\admin\view\layout\default.html";i:1588765311;s:58:"G:\phpstudy\WWW\kj\application\admin\view\common\meta.html";i:1588765311;s:60:"G:\phpstudy\WWW\kj\application\admin\view\common\script.html";i:1588765311;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:75:"G:\phpstudy\WWW\kj\public/../application/admin\view\member\member\edit.html";i:1596620453;s:61:"G:\phpstudy\WWW\kj\application\admin\view\layout\default.html";i:1588765311;s:58:"G:\phpstudy\WWW\kj\application\admin\view\common\meta.html";i:1588765311;s:60:"G:\phpstudy\WWW\kj\application\admin\view\common\script.html";i:1588765311;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -64,20 +64,10 @@
             <input id="c-paypwd" class="form-control" name="row[paypwd]" type="text" value="<?php echo htmlentities($row['paypwd']); ?>">
         </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Collectionimage'); ?>:</label>
-        <div class="col-xs-12 col-sm-8">
-            <div class="input-group">
-                <input id="c-collectionimage" class="form-control" size="50" name="row[collectionimage]" type="text" value="<?php echo htmlentities($row['collectionimage']); ?>">
-                <div class="input-group-addon no-border no-padding">
-                    <span><button type="button" id="plupload-collectionimage" class="btn btn-danger plupload" data-input-id="c-collectionimage" data-mimetype="image/gif,image/jpeg,image/png,image/jpg,image/bmp" data-multiple="false" data-preview-id="p-collectionimage"><i class="fa fa-upload"></i> <?php echo __('Upload'); ?></button></span>
-                    <span><button type="button" id="fachoose-collectionimage" class="btn btn-primary fachoose" data-input-id="c-collectionimage" data-mimetype="image/*" data-multiple="false"><i class="fa fa-list"></i> <?php echo __('Choose'); ?></button></span>
-                </div>
-                <span class="msg-box n-right" for="c-collectionimage"></span>
-            </div>
-            <ul class="row list-inline plupload-preview" id="p-collectionimage"></ul>
-        </div>
-    </div>
+
+
+
+
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Realname'); ?>:</label>
         <div class="col-xs-12 col-sm-8">

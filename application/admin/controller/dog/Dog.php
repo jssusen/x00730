@@ -59,6 +59,10 @@ class Dog extends Backend
     }
 
 
+    public function abcd(){
+        return create_payment_time();
+    }
+
     public function add()
     {
         if ($this->request->isPost()) {

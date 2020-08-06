@@ -18,6 +18,18 @@ class Dog extends BaseModel
         return $finalUrl;
     }
 
+    public function getExperienceMachine(){
+       $dog =  $this->where("type",0)->where("is_sell",1)->find();
+       return $dog;
+    }
+
+    //获取类型不同的矿机
+    public function getTypeDog($data){
+       $dog = $this->where("type",$data["type"])->where("is_sell",1)->select();
+       return $dog;
+    }
+
+
 
     public function getDogList($uid)
     {
@@ -81,6 +93,8 @@ class Dog extends BaseModel
        }
        return ["list"=>$list,"wait_refresh_second"=>$wait_refresh_second];
     }
+
+
 
 
 

@@ -14,7 +14,7 @@ Route::post('apis/:version/business','apis/:version.business/index');
 Route::post('apis/:version/upload','apis/:version.upload/uploadImg');//上传
 Route::get('apis/:version/register','apis/:version.member/register');//注册
 Route::get('apis/:version/authentication','apis/:version.member/authentication');//实名认证
-Route::get('apis/:version/login','apis/:version.member/login');//登陆
+Route::post('apis/:version/login','apis/:version.member/login');//登陆
 Route::get('apis/:version/work_save','apis/:version.WorkOrder/workSave');//工单提交
 Route::get('apis/:version/word_record','apis/:version.WorkOrder/wordRecord');//工单列表
 Route::get('apis/:version/new','apis/:version.NewSave/index');//新闻
@@ -25,11 +25,23 @@ Route::get('apis/:version/share_line','apis/:version.member/shareLine');//团队
 Route::get('apis/:version/transfer','apis/:version.member/transfer');//转账
 Route::get('apis/:version/money_log','apis/:version.member/moneyLog');//羽化币
 Route::get('apis/:version/my_apply','apis/:version.member/myApply');//我的预约
+
+
+
+Route::post('apis/:version/invest','apis/:version.member/invest');//充值接口
+Route::get('apis/:version/invest_view','apis/:version.member/investView');//充值页面接口
 Route::get('apis/:version/extension','apis/:version.member/extension');//推广收益
 Route::get('apis/:version/dog','apis/:version.dog/getDogList');//产品
-Route::get('apis/:version/apply','apis/:version.dog/apply');//开始预约
-Route::get('apis/:version/joinRob','apis/:version.dog/joinRob');//抢购
-Route::get('apis/:version/adopt_dog','apis/:version.dog/adopt_dog');//抢购结果
+Route::get('apis/:version/recently_itc','apis/:version.dog/recentlyItc');//最近租的矿机接口
+Route::get('apis/:version/get_experience_machine','apis/:version.dog/getExperienceMachine');//体验机
+Route::get('apis/:version/get_hire_itc','apis/:version.dog/getHireItc');//租矿机
+Route::get('apis/:version/my_dog','apis/:version.member/myDog');//我的矿机
+
+
+
+//Route::get('apis/:version/apply','apis/:version.dog/apply');//开始预约
+//Route::get('apis/:version/joinRob','apis/:version.dog/joinRob');//抢购
+//Route::get('apis/:version/adopt_dog','apis/:version.dog/adopt_dog');//抢购结果
 
 
 

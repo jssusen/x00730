@@ -33,6 +33,11 @@ function setting($key){
     $setting = \think\Db::name("setting")->where("key",$key)->column("key,value");
     return $setting;
 }
+//手机号码中间加密
+function encryptTel($tel) {
+    $new_tel = substr_replace($tel, '****', 3, 4);
+    return $new_tel;
+}
 
 function robDogSalt($uid=0,$dogId=0){
     $salt = 'robDog';
@@ -73,11 +78,15 @@ function create_invite_code() {
     return $d;
 }
 
-//前一分钟
+//前一分钟 用户注册前一分钟
 function create_fast_time(){
     return  date("H:i", strtotime("-1 minute"));
-
 }
+//体验矿机创建时间的明天的，忽略秒,打款时间
+function create_payment_time(){
+    return  date("Y-m-d H:i", strtotime("+1 day"));
+}
+
 
 function userInfo($param = [],$field="*")
 {

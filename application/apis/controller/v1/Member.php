@@ -4,15 +4,18 @@
 namespace app\apis\controller\v1;
 use app\apis\validate\RegisterSave;
 use app\apis\validate\AuthenticationSave;
+use app\apis\validate\Invest;
 use app\apis\validate\LoginSave;
 use app\apis\validate\UserInfo;
 use app\apis\model\History;
 use app\apis\model\Member as MemberModel;
 use app\apis\model\MemberGroup;
 use app\apis\model\Apply;
+use app\apis\model\Invest as InvestModel;
 use app\apis\validate\MoneyLog;
 use app\apis\validate\ShareLine;
 use app\apis\validate\Transfer;
+use app\apis\model\Match;
 use think\Db;
 use think\Loader;
 use app\apis\validate\Token;
@@ -32,11 +35,67 @@ class Member extends BaseController
     public function getUserInfo(){
         (new UserInfo())->goCheck();
          $data =  $this->request->param();
-         $user = MemberModel::memberInfo($data,"id,mobile,avatarimage,status,member_group_id,share_income");
+         $user = MemberModel::memberInfo($data,"id,mobile,avatarimage,status,member_group_id,share_income,integrals,share_code,itc_income,user_name");
          if(!$user["status"]) return $this->error("账户被封禁");
          $user["data"]["member_group_name"]=MemberGroup::getTitle($user["data"]["member_group_id"]);
          return $this->success("获取成功",$user["data"]);
     }
+
+    //充值接口
+    public function invest(){
+        (new Invest)->goCheck();
+        $data =  $this->request->param();
+        $newData = cleanUrl($data);
+        $user = MemberModel::memberInfo($newData,"id,status,share_income,paypwd");
+        if(!$user["status"]) return $this->error("账户被封禁");
+
+        if (!saltPassword($data["paypwd"])!==$user["data"]["paypwd"])  return $this->error("支付密码不正确");
+
+        $newData["uid"]=$user["data"]["id"];
+        $investScope = setting("invest_scope")["invest_scope"];
+        $invest = explode("|",$investScope);
+        if ($newData["money"]<=$invest[0]) return $this->error("充值金额不能少于最低金额");
+        if ($newData["money"]>$invest[1]) return $this->error("充值金额不能大于最高金额");
+        Db::startTrans();
+        try {
+            InvestModel::createInvest($newData);
+            Db::commit();
+        } catch (\Exception $e) {
+            // 回滚事务
+            Db::rollback();
+            return $this->error("网络异常,充值失败");
+        }
+        return $this->success("充值成功请等待审核");
+    }
+
+    //充值页面接口
+    public function investView(){
+        (new Token())->goCheck();
+        $data =  $this->request->param();
+        $user = MemberModel::memberInfo($data,"id,status,share_income");
+        if(!$user["status"]) return $this->error("账户被封禁");
+        $investScope = setting("invest_scope")["invest_scope"];
+        $invest = explode("|",$investScope);
+        $systemAccount = setting("system_account")["system_account"];
+        $account = explode("|",$systemAccount);
+        $view["invest"]=$invest;
+        $view["account"]=$account;
+        return $this->success("获取成功",$view);
+
+    }
+
+    //我的矿机接口
+    public function myDog(){
+        (new Token())->goCheck();
+        $data =  $this->request->param();
+        $user = MemberModel::memberInfo($data,"id,status");
+        if(!$user["status"]) return $this->error("账户被封禁");
+        $list =Match::myOrder($user["data"]["id"]);
+        $all_list["list"]=$list;
+        $all_list["itc"]=Match::addItc();
+        return $this->success("获取成功",$all_list);
+    }
+
 
     //团队信息
     public function shareLine(){
@@ -60,8 +119,6 @@ class Member extends BaseController
         $all_data["teamNumber"]=$teamNumber;
         $all_data["share_income"]=$user["data"]["share_income"];
         return $this->success("获取成功",$all_data);
-
-
     }
 
     //转账
@@ -130,11 +187,11 @@ class Member extends BaseController
         return $this->success("登陆成功",["token"=>$user["token"]]);
     }
 
+
     //注册
     public function register()
     {
         (new  RegisterSave())->goCheck();
-
          if (!setting("website_open")["website_open"]) return $this->error("暂时不开放注册");
          $data =  $this->request->param();
          $isUser = $this->member->findUserMobile($data["mobile"],"mobile");
