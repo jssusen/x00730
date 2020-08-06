@@ -13,6 +13,7 @@ class MemberGroup extends  BaseModel
 //        $this->request=Request::instance();
     }
 
+
     public static function getTitle($id){
        return  self::where("id",$id)->value("title");
     }

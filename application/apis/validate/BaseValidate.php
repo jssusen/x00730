@@ -16,9 +16,10 @@ class BaseValidate extends  Validate
         }
         return true;
     }
+
     protected function isLevel($value)
     {
-        if (in_array($value,[1,2,3]))
+        if (in_array($value,[1,2]) || $value == (int)37 || $value == (int)815)
         {
             return true;
         }else{

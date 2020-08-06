@@ -19,6 +19,8 @@ use app\apis\model\Match;
 use think\Db;
 use think\Loader;
 use app\apis\validate\Token;
+use think\Request;
+
 Loader::import('PhpQrcode.phpqrcode',EXTEND_PATH,'.php');
 
 class Member extends BaseController
@@ -48,9 +50,7 @@ class Member extends BaseController
         $newData = cleanUrl($data);
         $user = MemberModel::memberInfo($newData,"id,status,share_income,paypwd");
         if(!$user["status"]) return $this->error("账户被封禁");
-
-        if (!saltPassword($data["paypwd"])!==$user["data"]["paypwd"])  return $this->error("支付密码不正确");
-
+        if (saltPassword($data["paypwd"])!==$user["data"]["paypwd"])  return $this->error("支付密码不正确");
         $newData["uid"]=$user["data"]["id"];
         $investScope = setting("invest_scope")["invest_scope"];
         $invest = explode("|",$investScope);
@@ -97,29 +97,30 @@ class Member extends BaseController
     }
 
 
-    //团队信息
-    public function shareLine(){
-        (new ShareLine())->goCheck();
-        $data =  $this->request->param();
-        $user = $this->member->userInfo($data,"id,status,re_level,share_income");
-        if (!$user["status"]) return $this->error("该账户已被禁止");
-
-        $where['re_path']=array('like',"%,{$user['data']['id']},%");
-
-        $list = MemberModel::where(["status"=>1])
-            ->where(["re_level"=>$user["data"]['re_level']+$data["level"]])
-            ->where($where)
-            ->field('id,avatarimage,mobile,re_id,user_name,createtime,realname')
-            ->order('id desc')
-            ->select();
-        $recommendNumber = MemberModel::where(['re_id'=>$user['data']['id']])->count();
-        $teamNumber = MemberModel::where($where)->count();
-        $all_data["list"]=$list;
-        $all_data["recommendNumber"]=$recommendNumber;
-        $all_data["teamNumber"]=$teamNumber;
-        $all_data["share_income"]=$user["data"]["share_income"];
-        return $this->success("获取成功",$all_data);
-    }
+//    //团队信息
+//    public function shareLine(){
+//        (new ShareLine())->goCheck();
+//        $data =  $this->request->param();
+//        $user = $this->member->userInfo($data,"id,status,re_level,share_income");
+//        if (!$user["status"]) return $this->error("该账户已被禁止");
+//
+//        $where['re_path']=array('like',"%,{$user['data']['id']},%");
+//
+//        $list = MemberModel::where(["status"=>1])
+//            ->where(["re_level"=>$user["data"]['re_level']+$data["level"]])
+//            ->where($where)
+//            ->field('id,avatarimage,mobile,re_id,user_name,createtime,realname')
+//            ->order('id desc')
+//            ->select();
+//
+//        $recommendNumber = MemberModel::where(['re_id'=>$user['data']['id']])->count();
+//        $teamNumber = MemberModel::where($where)->count();
+//        $all_data["list"]=$list;
+//        $all_data["recommendNumber"]=$recommendNumber;
+//        $all_data["teamNumber"]=$teamNumber;
+//        $all_data["share_income"]=$user["data"]["share_income"];
+//        return $this->success("获取成功",$all_data);
+//    }
 
     //转账
     public function transfer(){
@@ -199,17 +200,18 @@ class Member extends BaseController
          $isShare_code =$this->member->findUserShare_code($data["share_code"],"id,status,re_level,re_path");
          if (!$isShare_code) return $this->error("邀请码不正确");
          if ($isShare_code["status"]!=1) return $this->error("该邀请码用户被封禁");
-
-
+         if ($data["password"]!==$data["password_tow"]) return $this->error("两次输入密码不相同");
+         if ($data["paypwd"]!==$data["paypwd_tow"]) return $this->error("两次输入支付密码不相同");
          $data["re_id"]=$isShare_code["id"];
          $data["re_level"]=$isShare_code["re_level"]+1;
          $data['re_path'] = $isShare_code['re_path'] . $isShare_code['id'] . ',';
-
          $token = $this->member->createrUser($data);
          if ($token){
              return $this->success("注册成功",$token);
          }
     }
+
+
 
     //我的预约
     public function myApply(){
@@ -318,7 +320,7 @@ class Member extends BaseController
         if (!$user["status"]){
             return $this->error("该账户已被禁止");
         }
-        $savePath = APP_PATH . '/../Public/qrcode/';
+        $savePath = APP_PATH . '/qrcode/';
         $webPath = '/qrcode/';
         $qrData = 'http://www.cnblogs.com/nickbai?id='.$user["data"]["id"];
         $qrLevel = 'H';

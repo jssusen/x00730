@@ -33,6 +33,8 @@ class Member extends  BaseModel
            $data["member_group_id"]=MemberGroup::min("id");
            $data["avatarimage"]="/avatar/avatar.jpg";
            unset($data["version"]);
+           unset($data["password_tow"]);
+           unset($data["paypwd_tow"]);
        }
        $user = self::create($data);
        return $user->token;

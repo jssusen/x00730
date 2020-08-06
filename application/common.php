@@ -82,6 +82,7 @@ function create_invite_code() {
 function create_fast_time(){
     return  date("H:i", strtotime("-1 minute"));
 }
+
 //体验矿机创建时间的明天的，忽略秒,打款时间
 function create_payment_time(){
     return  date("Y-m-d H:i", strtotime("+1 day"));
