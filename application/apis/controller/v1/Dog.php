@@ -59,20 +59,99 @@ class Dog extends BaseController
         return $this->success("获取成功",$list);
     }
 
+
     //购买矿机
     public function buyIct(){
-        (new BuyIct())->goCheck();
+//        (new BuyIct())->goCheck();
         $data =  $this->request->param();
-        $user = Member::memberInfo($data,"id,status,integrals,re_id,is_valid");
+        $user = Member::memberInfo($data,"id,status,integrals,re_id,re_path,is_valid");
         if(!$user["status"]) return $this->error("账户被封禁");
+        $iddata = array_filter(array_map('intval', explode(',', $user['data']['re_path']))) ;
+
+        $where = [
+            'id' =>[ 'in', $iddata]
+        ];
+        $userheigher = (new Member())->where($where)->field('id,user_name,token,re_id,re_level')->select();
+        $newhigherdata = [];
+        $level = [];
+
+        foreach ($userheigher as $k => $v){
+            $arr = [
+                'id' => $v['id'],
+                'level' => $v['re_level'] + 1,
+                'user_name' => $v['user_name']
+            ];
+            $level[$k] = $v['re_level'];
+            array_push($newhigherdata,$arr);
+        }
+        array_multisort($level,SORT_ASC,$newhigherdata);
+
+        $range1 = [3,4,5,6,7];
+        $range2 = [8,9,10,11,12,13,14,15];
+        $insertMoney = [];
+        //设置返利规则
+        foreach ($newhigherdata as $k1 => $v1){
+            if($v1['level'] == 1){
+                //一级 3%
+                $array = [
+                    'user_id' => $v1['id'],
+                    'rebate' => 0.03
+                ];
+                array_push($insertMoney,$array);
+            }else if($v1['level'] == 2){
+                // 二级 2%
+                $array = [
+                    'user_id' => $v1['id'],
+                    'rebate' => 0.02
+                ];
+                array_push($insertMoney,$array);
+            }else if(in_array($v1['level'],$range1)){
+                //3到7级 1%
+                $array = [
+                    'user_id' => $v1['id'],
+                    'rebate' => 0.01
+                ];
+                array_push($insertMoney,$array);
+            }else if(in_array($v1['level'],$range2)){
+                //8到15级 0.5%
+                $array = [
+                    'user_id' => $v1['id'],
+                    'rebate' => 0.005
+                ];
+                array_push($insertMoney,$array);
+            }
+        }
+
         if ($data["money"]>$user["data"]["integrals"])  return $this->error("余额不足");
         $isItc =  Match::findDayItc($user["data"]["id"],$data["dog_id"]);
         if ($isItc) return $this->error("该类型矿机每天只能购买一次");
         if (Match::findExperienceItc($user["data"]["id"],$data["dog_id"])) return $this->error("体验机只能购买一次");
         $data["uid"]=$user["data"]["id"];
-        Match::createOrder($data); //创建订单
-        Member::get($data["uid"])->setDec("integrals",$data["money"]);//减少余额
-        History::createHistory($data);//加入日志
+
+        Db::startTrans();
+        try {
+
+            foreach ($insertMoney as $k => $v){
+                $momberdetail = Member::get($v['user_id']);
+                $share_income = $data['money']*$v['rebate'];
+//                echo $share_income;echo '--->';echo $v['rebate'];echo'<br>';
+                $updatedata = [
+                    'integrals' => $momberdetail['integrals']+$share_income,
+                    'share_income' => $share_income
+                ];
+                (new Member())->where(['id' => $v['user_id']])->update($updatedata);
+            }
+            Match::createOrder($data); //创建订单
+            Member::get($data["uid"])->setDec("integrals",$data["money"]);//减少余额
+
+            History::createHistory($data);//加入日志
+            Db::commit();
+        } catch (\Exception $e) {
+            // 回滚事务
+            Db::rollback();
+            return $this->error("网络异常,充值失败");
+        }
+
         if ($user["data"]["re_id"]){    //推荐者存在
             $money = setting("recommend_user")["recommend_user"];
             Member::get($user["data"]["re_id"])->setInc("integrals",$money);//奖励余额
@@ -84,6 +163,7 @@ class Dog extends BaseController
                 "remark"=>"直推有效会员奖励",
                 "option"=>"income"
             ]);
+            return $this->success('创建成功');
         }
 
     }

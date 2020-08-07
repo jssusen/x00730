@@ -31,14 +31,14 @@ class Match extends BaseModel
             $data["return_money_all"]=$data["gains"];
             $data["return_money_day"]=$data["gains"];
             $data["payment_time"]=create_payment_time(1); //明天打款
-            $data["order_id"]=createOrderNum();
+            $data["order_id"]=makeOrderNo();
             unset($data["gains"]);
             self::create($data);
         }
         if ($data["type"]==1){ //天数机
             $data["return_money_all"]=$data["gains"]*$data["period_day"];
             $data["return_money_day"]=$data["gains"];
-            $data["order_id"]=createOrderNum();
+            $data["order_id"]=makeOrderNo();
             $data["payment_time"]=create_payment_time($data["period_day"]); //最后一次打款时间
             $data["every_day_time"]=create_fast_time();//每日更改天数  每日的周期
             unset($data["gains"]);
@@ -46,7 +46,7 @@ class Match extends BaseModel
         }
         if ($data["type"]==2){  //周期机
             $data["return_money_all"]=$data["gains"];
-            $data["order_id"]=createOrderNum();
+            $data["order_id"]=makeOrderNo();
             $data["payment_time"]=create_payment_time($data["period_day"]); //最后一次打款时间
             $data["every_day_time"]=create_fast_time();//每天的打款时间
             unset($data["gains"]);
