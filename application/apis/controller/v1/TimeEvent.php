@@ -84,6 +84,8 @@ class TimeEvent extends BaseController
                         "remark"=>"矿机{$k["dog_name"]}收益",
                         "option"=>"income"      //写日志
                     ]);
+
+
                 }
                 //在最后一天改状态
                 if($k["payment_time"]==date("Y-m-d H:i")) {

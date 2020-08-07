@@ -45,7 +45,7 @@ class Member extends BaseController
 
     //充值接口
     public function invest(){
-        (new Invest)->goCheck();
+        (new Invest())->goCheck();
         $data =  $this->request->param();
         $newData = cleanUrl($data);
         $user = MemberModel::memberInfo($newData,"id,status,share_income,paypwd");
@@ -99,6 +99,24 @@ class Member extends BaseController
         $all_list["itc"]=Match::addItc();
         return $this->success("获取成功",$all_list);
     }
+
+    //银行卡列表
+    public function bank(){
+        (new Token())->goCheck();
+        $data =  $this->request->param();
+        $user = MemberModel::memberInfo($data,"id,status");
+        if(!$user["status"]) return $this->error("账户被封禁");
+        $list = Db::name("support_bank")->select();
+        return $this->success("获取成功",$list);
+    }
+
+
+
+
+
+    //账户的类型
+
+
 
 
 //    //团队信息

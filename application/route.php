@@ -31,7 +31,7 @@ Route::post('apis/:version/check/pw','apis/:version.MyTeam/checkPasswd');//我�
 
 
 
-Route::get('apis/:version/invest','apis/:version.member/invest');//充值接口
+Route::post('apis/:version/invest','apis/:version.member/invest');//充值接口
 Route::get('apis/:version/invest_view','apis/:version.member/investView');//充值页面接口
 Route::get('apis/:version/extension','apis/:version.member/extension');//推广收益
 Route::get('apis/:version/dog','apis/:version.dog/getDogList');//产品
@@ -53,6 +53,9 @@ Route::get('apis/:version/my/cash','apis/:version.MyTeam/getCashByToken');//我�
 
 
 Route::post('apis/:version/buy_ict','apis/:version.dog/buyIct');//购买矿机
+
+Route::get('apis/:version/bank','apis/:version.member/bank');//银行卡列表
+Route::get('apis/:version/support_type','apis/:version.member/supportType');//账户类型
 
 Route::get('apis/:version/save_money','apis/:version.TimeEvent/saveUserMoney');//定时器用户每日发送
 Route::get('apis/:version/save_itc_money','apis/:version.TimeEvent/itcIncome');//定时器矿机每分查询
