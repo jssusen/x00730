@@ -75,11 +75,15 @@ class Member extends BaseController
         $user = MemberModel::memberInfo($data,"id,status,share_income");
         if(!$user["status"]) return $this->error("账户被封禁");
         $investScope = setting("invest_scope")["invest_scope"];
+        $money    = setting("money_list")["money_list"];
+        $moneyList =explode("|",$money);
         $invest = explode("|",$investScope);
         $systemAccount = setting("system_account")["system_account"];
         $account = explode("|",$systemAccount);
+        $arr=["pay_type"=>$account["0"],"pay_num"=>$account["1"],"pay"=>$account["2"]];
         $view["invest"]=$invest;
-        $view["account"]=$account;
+        $view["account"]=$arr;
+        $view["money_list"]=$moneyList;
         return $this->success("获取成功",$view);
 
     }
@@ -90,7 +94,7 @@ class Member extends BaseController
         $data =  $this->request->param();
         $user = MemberModel::memberInfo($data,"id,status");
         if(!$user["status"]) return $this->error("账户被封禁");
-        $list =Match::myOrder($user["data"]["id"]);
+        $list =Match::myOrder($user["data"]["id"],$data["page"]);
         $all_list["list"]=$list;
         $all_list["itc"]=Match::addItc();
         return $this->success("获取成功",$all_list);

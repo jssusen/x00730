@@ -18,6 +18,11 @@ class Member extends  BaseModel
         return $finalUrl;
     }
 
+    public  static function findAllUser(){
+
+       return Db::name("member")->where("status",1)->select();
+    }
+
 
     public function createrUser($data){
        foreach ($data as $k=>$v)

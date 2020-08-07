@@ -3,6 +3,7 @@
 
 namespace app\apis\controller\v1;
 use app\apis\model\Dog as DogModel;
+use app\apis\validate\BuyIct;
 use app\apis\validate\Token;
 use app\apis\model\Member;
 use app\apis\model\Apply as ApplyModel;
@@ -57,6 +58,68 @@ class Dog extends BaseController
         }
         return $this->success("获取成功",$list);
     }
+
+    //购买矿机
+    public function buyIct(){
+        (new BuyIct())->goCheck();
+        $data =  $this->request->param();
+        $user = Member::memberInfo($data,"id,status,integrals,re_id,is_valid");
+        if(!$user["status"]) return $this->error("账户被封禁");
+        if ($data["money"]>$user["data"]["integrals"])  return $this->error("余额不足");
+        $isItc =  Match::findDayItc($user["data"]["id"],$data["dog_id"]);
+        if ($isItc) return $this->error("该类型矿机每天只能购买一次");
+        if (Match::findExperienceItc($user["data"]["id"],$data["dog_id"])) return $this->error("体验机只能购买一次");
+        $data["uid"]=$user["data"]["id"];
+        Match::createOrder($data); //创建订单
+        Member::get($data["uid"])->setDec("integrals",$data["money"]);//减少余额
+        History::createHistory($data);//加入日志
+        if ($user["data"]["re_id"]){    //推荐者存在
+            $money = setting("recommend_user")["recommend_user"];
+            Member::get($user["data"]["re_id"])->setInc("integrals",$money);//奖励余额
+            Member::get($user["data"]["re_id"])->setInc("share_income",$money);//推广奖励
+            History::create([           //加入日志
+                "uid"=>$user["data"]["re_id"],
+                "money"=>$money,
+                "type"=>"share_incomes",
+                "remark"=>"直推有效会员奖励",
+                "option"=>"income"
+            ]);
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //获取产品列表

@@ -40,6 +40,7 @@ Route::get('apis/:version/get_experience_machine','apis/:version.dog/getExperien
 Route::get('apis/:version/get_hire_itc','apis/:version.dog/getHireItc');//租矿机
 Route::get('apis/:version/my_dog','apis/:version.member/myDog');//我的矿机
 
+
 Route::get('apis/:version/project/rule','apis/:version.Home/projectRule');//首页项目介绍
 
 Route::get('apis/:version/money/log','apis/:version.MyTeam/getUserInOutMoney');//我的收支明细
@@ -51,6 +52,10 @@ Route::get('apis/:version/my/info','apis/:version.MyTeam/userInfoByToken');//我
 Route::get('apis/:version/my/cash','apis/:version.MyTeam/getCashByToken');//我的提现记录
 
 
+Route::post('apis/:version/buy_ict','apis/:version.dog/buyIct');//购买矿机
+
+Route::get('apis/:version/save_money','apis/:version.TimeEvent/saveUserMoney');//定时器用户每日发送
+Route::get('apis/:version/save_itc_money','apis/:version.TimeEvent/itcIncome');//定时器矿机每分查询
 
 
 

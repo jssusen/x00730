@@ -84,8 +84,8 @@ function create_fast_time(){
 }
 
 //体验矿机创建时间的明天的，忽略秒,打款时间
-function create_payment_time(){
-    return  date("Y-m-d H:i", strtotime("+1 day"));
+function create_payment_time($day){
+    return  date("Y-m-d H:i", strtotime("+{$day} day"));
 }
 
 
