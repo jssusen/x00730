@@ -77,6 +77,65 @@ class TimeEvent extends BaseController
                         ->inc("integrals",$k["return_money_day"])
                         ->inc("itc_income",$k["return_money_day"])
                         ->update(); //加用户钱
+
+
+                    //设置上级返利
+                    $user = Member::where(['id' => $k["uid"]])->find();
+                    $iddata = array_filter(array_map('intval', explode(',', $user('id')))) ;
+
+                    $where = [
+                        'id' =>[ 'in', $iddata]
+                    ];
+                    $userheigher = (new Member())->where($where)->field('id,user_name,token,re_id,re_level')->select();
+                    $newhigherdata = [];
+                    $level = [];
+
+                    foreach ($userheigher as $k => $v){
+                        $arr = [
+                            'id' => $v['id'],
+                            'level' => $v['re_level'] + 1,
+                            'user_name' => $v['user_name']
+                        ];
+                        $level[$k] = $v['re_level'];
+                        array_push($newhigherdata,$arr);
+                    }
+                    array_multisort($level,SORT_ASC,$newhigherdata);
+
+                    $range1 = [3,4,5,6,7];
+                    $range2 = [8,9,10,11,12,13,14,15];
+                    $insertMoney = [];
+                    //设置返利规则
+                    foreach ($newhigherdata as $k1 => $v1){
+                        if($v1['level'] == 1){
+                            //一级 3%
+                            $array = [
+                                'user_id' => $v1['id'],
+                                'rebate' => 0.03
+                            ];
+                            array_push($insertMoney,$array);
+                        }else if($v1['level'] == 2){
+                            // 二级 2%
+                            $array = [
+                                'user_id' => $v1['id'],
+                                'rebate' => 0.02
+                            ];
+                            array_push($insertMoney,$array);
+                        }else if(in_array($v1['level'],$range1)){
+                            //3到7级 1%
+                            $array = [
+                                'user_id' => $v1['id'],
+                                'rebate' => 0.01
+                            ];
+                            array_push($insertMoney,$array);
+                        }else if(in_array($v1['level'],$range2)){
+                            //8到15级 0.5%
+                            $array = [
+                                'user_id' => $v1['id'],
+                                'rebate' => 0.005
+                            ];
+                            array_push($insertMoney,$array);
+                        }
+                    }
                     History::create([
                         "uid"=>$k["uid"],
                         "money"=>$k["return_money_day"],
@@ -84,8 +143,15 @@ class TimeEvent extends BaseController
                         "remark"=>"矿机{$k["dog_name"]}收益",
                         "option"=>"income"      //写日志
                     ]);
-
-
+                }
+                foreach ($insertMoney as $k => $v){
+                    $momberdetail = Member::get($v['user_id']);
+                    $share_income = $k["return_money_day"]*$v['rebate'];
+                    $updatedata = [
+                        'integrals' => $momberdetail['integrals']+$share_income,
+                        'share_income' => $share_income
+                    ];
+                    (new Member())->where(['id' => $v['user_id']])->update($updatedata);
                 }
                 //在最后一天改状态
                 if($k["payment_time"]==date("Y-m-d H:i")) {
@@ -107,11 +173,7 @@ class TimeEvent extends BaseController
                         "remark"=>"矿机{$k["dog_name"]}收益",
                         "option"=>"income"      //写日志
                     ]);
-
-
-
                 }
-
             }
 
             //如果是到期机
@@ -125,6 +187,74 @@ class TimeEvent extends BaseController
                 }
                 //在最后一天改状态
                 if ($k["payment_time"]==date("Y-m-d H:i")){
+
+                    $user = Member::where(['id' => $k["uid"]])->find();
+                    $iddata = array_filter(array_map('intval', explode(',', $user('id')))) ;
+
+                    $where = [
+                        'id' =>[ 'in', $iddata]
+                    ];
+                    $userheigher = (new Member())->where($where)->field('id,user_name,token,re_id,re_level')->select();
+                    $newhigherdata = [];
+                    $level = [];
+
+                    foreach ($userheigher as $k => $v){
+                        $arr = [
+                            'id' => $v['id'],
+                            'level' => $v['re_level'] + 1,
+                            'user_name' => $v['user_name']
+                        ];
+                        $level[$k] = $v['re_level'];
+                        array_push($newhigherdata,$arr);
+                    }
+                    array_multisort($level,SORT_ASC,$newhigherdata);
+
+                    $range1 = [3,4,5,6,7];
+                    $range2 = [8,9,10,11,12,13,14,15];
+                    $insertMoney = [];
+                    //设置返利规则
+                    foreach ($newhigherdata as $k1 => $v1){
+                        if($v1['level'] == 1){
+                            //一级 3%
+                            $array = [
+                                'user_id' => $v1['id'],
+                                'rebate' => 0.03
+                            ];
+                            array_push($insertMoney,$array);
+                        }else if($v1['level'] == 2){
+                            // 二级 2%
+                            $array = [
+                                'user_id' => $v1['id'],
+                                'rebate' => 0.02
+                            ];
+                            array_push($insertMoney,$array);
+                        }else if(in_array($v1['level'],$range1)){
+                            //3到7级 1%
+                            $array = [
+                                'user_id' => $v1['id'],
+                                'rebate' => 0.01
+                            ];
+                            array_push($insertMoney,$array);
+                        }else if(in_array($v1['level'],$range2)){
+                            //8到15级 0.5%
+                            $array = [
+                                'user_id' => $v1['id'],
+                                'rebate' => 0.005
+                            ];
+                            array_push($insertMoney,$array);
+                        }
+                    }
+
+                    //更新自己的上级返利
+                    foreach ($insertMoney as $k => $v){
+                        $momberdetail = Member::get($v['user_id']);
+                        $share_income = $k["return_money_day"]*$v['rebate'];
+                        $updatedata = [
+                            'integrals' => $momberdetail['integrals']+$share_income,
+                            'share_income' => $share_income
+                        ];
+                        (new Member())->where(['id' => $v['user_id']])->update($updatedata);
+                    }
 
                     Db::name("match")
                         ->where("id",$k["id"])

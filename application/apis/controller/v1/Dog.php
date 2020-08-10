@@ -64,7 +64,7 @@ class Dog extends BaseController
     public function buyIct(){
 //        (new BuyIct())->goCheck();
         $data =  $this->request->param();
-        $user = Member::memberInfo($data,"id,status,integrals,re_id,re_path,is_valid");
+        $user = Member::memberInfo($data,"id,status,integrals,re_id,re_path,is_valid,is_first,share_group");
         if(!$user["status"]) return $this->error("账户被封禁");
         $iddata = array_filter(array_map('intval', explode(',', $user['data']['re_path']))) ;
 
@@ -129,12 +129,12 @@ class Dog extends BaseController
         $data["uid"]=$user["data"]["id"];
 
         Db::startTrans();
+
         try {
 
             foreach ($insertMoney as $k => $v){
                 $momberdetail = Member::get($v['user_id']);
                 $share_income = $data['money']*$v['rebate'];
-//                echo $share_income;echo '--->';echo $v['rebate'];echo'<br>';
                 $updatedata = [
                     'integrals' => $momberdetail['integrals']+$share_income,
                     'share_income' => $share_income
@@ -143,7 +143,8 @@ class Dog extends BaseController
             }
             Match::createOrder($data); //创建订单
             Member::get($data["uid"])->setDec("integrals",$data["money"]);//减少余额
-
+            Member::get($data["uid"])->update(["is_valid" => 1]);
+            Member::countEffectShare($user['data']['re_id']);
             History::createHistory($data);//加入日志
             Db::commit();
         } catch (\Exception $e) {
@@ -154,17 +155,20 @@ class Dog extends BaseController
 
         if ($user["data"]["re_id"]){    //推荐者存在
             $money = setting("recommend_user")["recommend_user"];
-            Member::get($user["data"]["re_id"])->setInc("integrals",$money);//奖励余额
-            Member::get($user["data"]["re_id"])->setInc("share_income",$money);//推广奖励
-            History::create([           //加入日志
-                "uid"=>$user["data"]["re_id"],
-                "money"=>$money,
-                "type"=>"share_incomes",
-                "remark"=>"直推有效会员奖励",
-                "option"=>"income"
-            ]);
-            return $this->success('创建成功');
+            if($user['data']['is_first'] == 1){
+                Member::get($user["data"]["re_id"])->setInc("integrals",$money);//奖励余额
+                Member::get($user["data"]["re_id"])->setInc("share_income",$money);//推广奖励
+                History::create([           //加入日志
+                    "uid"=>$user["data"]["re_id"],
+                    "money"=>$money,
+                    "type"=>"share_incomes",
+                    "remark"=>"直推有效会员奖励",
+                    "option"=>"income"
+                ]);
+                Member::get($user["data"]["id"])->setInc("is_first",2);//推广奖励
+            }
         }
+        return $this->success('创建成功');
 
     }
 
