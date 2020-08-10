@@ -11,7 +11,7 @@
 // +----------------------------------------------------------------------
 use think\Route;
 Route::post('apis/:version/business','apis/:version.business/index');
-Route::post('apis/:version/upload','apis/:version.upload/uploadImg');//上传
+Route::rule('apis/:version/upload','apis/:version.upload/uploadImg');//上传
 Route::post('apis/:version/register','apis/:version.member/register');//注册
 Route::get('apis/:version/authentication','apis/:version.member/authentication');//实名认证
 Route::post('apis/:version/login','apis/:version.member/login');//登陆
@@ -55,6 +55,9 @@ Route::get('apis/:version/my/cash','apis/:version.MyTeam/getCashByToken');//我�
 Route::post('apis/:version/buy_ict','apis/:version.dog/buyIct');//购买矿机
 
 Route::get('apis/:version/bank','apis/:version.member/bank');//银行卡列表
+Route::post('apis/:version/add_bank','apis/:version.member/addBank');//添加银行卡
+Route::get('apis/:version/my_bank','apis/:version.member/myBank');//我的银行卡
+Route::get('apis/:version/withdraw','apis/:version.member/withdraw');//开始提现
 Route::get('apis/:version/support_type','apis/:version.member/supportType');//账户类型
 
 Route::get('apis/:version/save_money','apis/:version.TimeEvent/saveUserMoney');//定时器用户每日发送

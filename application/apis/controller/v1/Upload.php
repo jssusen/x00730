@@ -22,8 +22,8 @@ class Upload extends BaseController
             {
                 $url = $res->getSaveName();
                 $newUrl = str_replace("\\","/",$url);
-                $imgUrl = $this->request->domain(). "/public"."/uploads/".$newUrl;
-                return $imgUrl;
+                $imgUrl = $this->request->domain(). "/x00730"."/public"."/uploads/".$newUrl;
+                return $this->success("上传成功",$imgUrl);
             }
         }
         return $this->error("上传失败");

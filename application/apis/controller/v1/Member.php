@@ -15,11 +15,15 @@ use app\apis\model\Invest as InvestModel;
 use app\apis\validate\MoneyLog;
 use app\apis\validate\ShareLine;
 use app\apis\validate\Transfer;
+use app\apis\model\Withdrawal;
 use app\apis\model\Match;
 use think\Db;
 use think\Loader;
 use app\apis\validate\Token;
 use think\Request;
+use app\apis\validate\Withdraw;
+use app\apis\model\MemberBank;
+use app\apis\validate\AddBank;
 
 Loader::import('PhpQrcode.phpqrcode',EXTEND_PATH,'.php');
 
@@ -109,6 +113,65 @@ class Member extends BaseController
         $list = Db::name("support_bank")->select();
         return $this->success("获取成功",$list);
     }
+    //添加银行卡
+    public function addBank(){
+        (new AddBank())->goCheck();
+        $data =  $this->request->param();
+        $user = MemberModel::memberInfo($data,"id,status");
+        if(!$user["status"]) return $this->error("账户被封禁");
+        $data["uid"]=$user["data"]["id"];
+        $isOk= MemberBank::addBank($data);
+        if ($isOk) return $this->success("添加成功");
+    }
+
+    //我的银行卡
+    public function myBank(){
+        (new Token())->goCheck();
+        $data =  $this->request->param();
+        $user = MemberModel::memberInfo($data,"id,status");
+        if(!$user["status"]) return $this->error("账户被封禁");
+        $list = MemberBank::where("uid",$user["data"]["id"])->select();
+        $list["integrals"] =MemberModel::get($user["data"]["id"])->value("integrals");
+        $withdrawalRange =setting("withdrawal_range")["withdrawal_range"];
+        $min_money= explode("|",$withdrawalRange);
+        $list["min_money"]=$min_money["0"];
+        $withdrawal_time=setting("withdrawal_time")["withdrawal_time"];
+        $withdrawal= explode("|",$withdrawal_time);
+        $list["min_time"]=$withdrawal["0"];
+        $list["max_time"]=$withdrawal["1"];
+        return $this->success("获取成功",$list);
+    }
+
+    //开始提现
+    public function withdraw(){
+        (new Withdraw())->goCheck();
+        $data =  $this->request->param();
+        $user = MemberModel::memberInfo($data,"id,status,is_valid,integrals");
+        if(!$user["status"]) return $this->error("账户被封禁");
+        $withdrawal_time=setting("withdrawal_time")["withdrawal_time"];
+        $withdrawal= explode("|",$withdrawal_time);
+        $withdrawal_range=setting("withdrawal_range")["withdrawal_range"];
+        $range = explode("|",$withdrawal_range);
+        $data["uid"]=$user["data"]["id"];
+        if ($data["money"]>$user["data"]["integrals"]) return $this->error("余额不足");
+        if ($data["money"]<$range["0"]) return $this->error("提现金额未到最低限度");
+        if (date("H:i")<$withdrawal["0"]) return $this->error("未到提现开始时间");
+        if (date("H:i")>$withdrawal["1"]) return $this->error("提现时间已过");
+        if (!$user["data"]["is_valid"]) return $this->error("您不是激活会员，不能提现");
+        $count = Withdrawal::finDayWithrawal($user["data"]["id"]);
+        if ($count>=$range["1"]) return $this->error("今日提现已达上限");
+        //当日第一次提现
+        if (!$count){
+            Withdrawal::createDrawal($data);
+        }
+
+
+
+    }
+
+
+
+
 
 
 
