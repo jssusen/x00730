@@ -35,6 +35,27 @@ class Dog extends BaseController
         return $this->success("获取成功",$dog);
     }
 
+
+    public function testUserReId(){
+        $data = $this->request->param();
+        $user = (new Member())->where(['token' => $data['token']])->find();
+        $arr[0] = $user;
+        if(!$user["status"]) return $this->error("账户被封禁");
+        (new Member())->sortFindTeamUser($arr, 0);
+        $temp = 1;
+        for($i=0;$i<count($arr);$i++){
+           if($arr[$i]->share_group > $i){
+               if($i <= 1){
+                   echo '3%';
+               }else if($i <= 2){
+                   echo '2%';
+               }else if($i <= 5){
+                   echo '1%';
+               }
+           }
+        }
+    }
+
     //租赁接口
     public function getHireItc(){
         (new HireItc())->goCheck();
@@ -64,7 +85,7 @@ class Dog extends BaseController
     public function buyIct(){
 //        (new BuyIct())->goCheck();
         $data =  $this->request->param();
-        $user = Member::memberInfo($data,"id,status,integrals,re_id,re_path,is_valid,is_first,share_group");
+        $user = Member::memberInfo($data,"id,status,integrals,user_name,re_id,re_path,is_valid,is_first,share_group");
         if(!$user["status"]) return $this->error("账户被封禁");
         $iddata = array_filter(array_map('intval', explode(',', $user['data']['re_path']))) ;
 
@@ -127,23 +148,83 @@ class Dog extends BaseController
         if ($isItc) return $this->error("该类型矿机每天只能购买一次");
         if (Match::findExperienceItc($user["data"]["id"],$data["dog_id"])) return $this->error("体验机只能购买一次");
         $data["uid"]=$user["data"]["id"];
-
+//
         Db::startTrans();
 
         try {
-
+            //处理推广购买分成
             foreach ($insertMoney as $k => $v){
                 $momberdetail = Member::get($v['user_id']);
                 $share_income = $data['money']*$v['rebate'];
                 $updatedata = [
                     'integrals' => $momberdetail['integrals']+$share_income,
-                    'share_income' => $share_income
+                    'share_income' => $momberdetail['share_income'] + $share_income
                 ];
                 (new Member())->where(['id' => $v['user_id']])->update($updatedata);
+                History::create([           //加入日志
+                    "uid"=>$v['user_id'],
+                    "money"=>$share_income,
+                    "type"=>"share_incomes",
+                    "remark"=>"直推有效会员奖励,来自{$user['data']['user_name']}的推广购买分成",
+                    "option"=>"income"
+                ]);
+            }
+
+            //处理团队提成很红
+            $sortuser = (new Member())->where(['token' => $data['token']])->find();
+            $sorteamtarr[0] = $sortuser;
+            if(!$user["status"]) return $this->error("账户被封禁");
+            (new Member())->sortFindTeamUser($sorteamtarr, 0);
+            for($i=0;$i<count($sorteamtarr);$i++){
+                if($sorteamtarr[$i]->share_group > $i){
+                    //判断级数进行提成分红
+                    if($i <= 1){
+                        $team_share_income = $data['money']*0.03;
+                        $teamshareupdatedata = [
+                            'integrals' => $sorteamtarr[$i]->integrals+$team_share_income,
+                            'share_income' => $sorteamtarr[$i]->share_income + $team_share_income
+                        ];
+                        (new Member())->where(['id' => $sorteamtarr[$i]->id])->update($teamshareupdatedata);
+
+                    }else if($i <= 2){
+                        $team_share_income = $data['money']*0.02;
+                        $teamshareupdatedata = [
+                            'integrals' => $sorteamtarr[$i]->integrals+$team_share_income,
+                            'share_income' => $sorteamtarr[$i]->share_income + $team_share_income
+                        ];
+                        (new Member())->where(['id' => $sorteamtarr[$i]->id])->update($teamshareupdatedata);
+
+                    }else if($i <= 5){
+                        $team_share_income = $data['money']*0.01;
+                        $teamshareupdatedata = [
+                            'integrals' => $sorteamtarr[$i]->integrals+$team_share_income,
+                            'share_income' => $sorteamtarr[$i]->share_income + $team_share_income
+                        ];
+                        (new Member())->where(['id' => $sorteamtarr[$i]->id])->update($teamshareupdatedata);
+
+                    }else{
+                        $team_share_income = $data['money']*1;
+                        $teamshareupdatedata = [
+                            'integrals' => $sorteamtarr[$i]->integrals,
+                            'share_income' => $momberdetail['share_income']
+                        ];
+                        (new Member())->where(['id' => $sorteamtarr[$i]->id])->update($teamshareupdatedata);
+
+                    }
+
+                    History::create([           //加入日志
+                        "uid"=>$sorteamtarr[$i]->id,
+                        "money"=>$team_share_income,
+                        "type"=>"share_incomes",
+                        "remark"=>"直推有效会员奖励,来自{$user['data']['user_name']}的团队推广购买分成",
+                        "option"=>"income"
+                    ]);
+
+                }
             }
             Match::createOrder($data); //创建订单
             Member::get($data["uid"])->setDec("integrals",$data["money"]);//减少余额
-            Member::get($data["uid"])->update(["is_valid" => 1]);
+            (new Member())->where(['id'=>$data['uid']])->update(["is_valid" => 1]);
             Member::countEffectShare($user['data']['re_id']);
             History::createHistory($data);//加入日志
             Db::commit();
@@ -155,7 +236,7 @@ class Dog extends BaseController
 
         if ($user["data"]["re_id"]){    //推荐者存在
             $money = setting("recommend_user")["recommend_user"];
-            if($user['data']['is_first'] == 1){
+            if($user['data']['is_first'] == 0){
                 Member::get($user["data"]["re_id"])->setInc("integrals",$money);//奖励余额
                 Member::get($user["data"]["re_id"])->setInc("share_income",$money);//推广奖励
                 History::create([           //加入日志
@@ -165,7 +246,7 @@ class Dog extends BaseController
                     "remark"=>"直推有效会员奖励",
                     "option"=>"income"
                 ]);
-                Member::get($user["data"]["id"])->setInc("is_first",2);//推广奖励
+                (new Member())->where(['id'=>$data['uid']])->update(["is_first" => 1]);//推广奖励，仅一次
             }
         }
         return $this->success('创建成功');

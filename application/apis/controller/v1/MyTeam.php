@@ -30,6 +30,22 @@ class MyTeam extends BaseController
         $this->withdrawal = new Withdrawal();
     }
 
+    public function getMyTeamNum(Request $request){
+        $param = $request->get();
+        $user = $this->member->userInfo($param,"id,status");
+        if (!$user["status"]) return $this->error("该账户已被禁止");
+        $mytemres = $this->member->getchildren($user['data']['id'],0);
+        $myisvalidcount = $this->member->getchildren($user['data']['id'],1);
+        $myshare = $this->member->where(['re_id'=>$user['data']['id']])->count();
+        $myisvalidshare = $this->member->where(['re_id'=>$user['data']['id'],'is_valid'=>1])->count();
+        $result = [
+            'mytemres' => count($mytemres),
+            'myisvalidcount' => count($myisvalidcount),
+            'myshare' =>$myshare,
+            'myisvalidshare' =>$myisvalidshare,
+        ];
+        return $this->success('获取成功',$result);
+    }
 
     /**
      * 提现记录
