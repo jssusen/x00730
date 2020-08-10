@@ -42,6 +42,8 @@ class NewSave extends BaseController
         if (!$user["status"]) return $this->error("该账户未登录或者被禁止");
         $info = $this->news->getDetails($data["id"]);
         return $this->success("获取成功",$info);
+
+        
     }
 
 

@@ -139,6 +139,11 @@ class Member extends BaseController
         if(!$user["status"]) return $this->error("账户被封禁");
         $list["list"] = MemberBank::where("uid",$user["data"]["id"])->order("is_default desc")->select();
         $list["integrals"] =MemberModel::get($user["data"]["id"])->value("integrals");
+        return $this->success("获取成功",$list);
+    }
+
+    public function withdrawalRrange(){
+//        (new Token())->goCheck();
         $withdrawalRange =setting("withdrawal_range")["withdrawal_range"];
         $min_money= explode("|",$withdrawalRange);
         $list["min_money"]=$min_money["0"];
@@ -147,7 +152,9 @@ class Member extends BaseController
         $list["min_time"]=$withdrawal["0"];
         $list["max_time"]=$withdrawal["1"];
         return $this->success("获取成功",$list);
+
     }
+
 
     //开始提现
     public function withdraw(){

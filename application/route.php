@@ -57,6 +57,7 @@ Route::post('apis/:version/buy_ict','apis/:version.dog/buyIct');//购买矿机
 Route::get('apis/:version/bank','apis/:version.member/bank');//银行卡列表
 Route::post('apis/:version/add_bank','apis/:version.member/addBank');//添加银行卡
 Route::get('apis/:version/my_bank','apis/:version.member/myBank');//我的银行卡
+Route::get('apis/:version/withdrawal_range','apis/:version.member/withdrawalRrange');//我的银行卡
 Route::post('apis/:version/withdraw','apis/:version.member/withdraw');//开始提现
 Route::post('apis/:version/set_default','apis/:version.member/setDefault');//设置默认
 

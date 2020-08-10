@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"G:\phpstudy\WWW\x00730\public/../application/admin\view\proclamation\news\add.html";i:1597056044;s:65:"G:\phpstudy\WWW\x00730\application\admin\view\layout\default.html";i:1588765312;s:62:"G:\phpstudy\WWW\x00730\application\admin\view\common\meta.html";i:1588765312;s:64:"G:\phpstudy\WWW\x00730\application\admin\view\common\script.html";i:1588765312;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"G:\phpstudy\WWW\x00730\public/../application/admin\view\proclamation\news\add.html";i:1597057331;s:65:"G:\phpstudy\WWW\x00730\application\admin\view\layout\default.html";i:1588765312;s:62:"G:\phpstudy\WWW\x00730\application\admin\view\common\meta.html";i:1588765312;s:64:"G:\phpstudy\WWW\x00730\application\admin\view\common\script.html";i:1588765312;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -74,19 +74,7 @@
 
 
 
-    <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"> 用户: 选择站内消息时指定用户，其余类型选空</label>
-        <div class="col-xs-12 col-sm-8">
-
-                <input id="c-uid"
-                       data-rule="required"
-                       data-source="member/member/index",
-                       data-field="user_name"
-                       class="form-control selectpage" name="row[c-uid]"
-                       type="text" value="" >
-        </div>
-    </div>
-
+  
 
     <div class="form-group">
         <label class="control-label col-xs-12 col-sm-2"><?php echo __('Content'); ?>:</label>
