@@ -16,7 +16,7 @@ class Upload extends BaseController
     {
 
         $info = $this -> request->file("file");
-        if($info){
+         if($info){
             $res =$info->move(ROOT_PATH . 'public' . DS . 'uploads');
             if($res)
             {
@@ -29,5 +29,7 @@ class Upload extends BaseController
         return $this->error("上传失败");
 
     }
+
+
 
 }

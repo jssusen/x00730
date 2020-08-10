@@ -11,7 +11,7 @@ class BaseValidate extends  Validate
         $request = Request::instance();
         $params  = $request->param();
         if (!$this->check($params)){
-            $e =  new ParamsException(["msg"=>$this->error]);
+            $e =  new ParamsException(["msg"=>$this->error,"code" => 4400]);
             throw $e;
         }
         return true;
