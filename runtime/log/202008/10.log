@@ -35778,3 +35778,1055 @@
 [ info ] [ RUN ] app\common\controller\Backend->index[ G:\phpstudy\WWW\x00730\application\admin\library\traits\Backend.php ]
 [ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.000000s ]
 [ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:43:02+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.084004s] [吞吐率：11.90req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:43:43+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.058004s] [吞吐率：17.24req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002001s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:44:07+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.055003s] [吞吐率：18.18req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001001s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:44:28+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.082005s] [吞吐率：12.19req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:44:31+08:00 ] 192.168.1.7 GET 192.168.1.7/x00730/public/apis/v1/user_info?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.086005s] [吞吐率：11.63req/s] [内存消耗：4,063.37kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'getUserInfo',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.24:8080/',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'origin' => 'http://192.168.1.24:8080',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->getUserInfo[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:44:31+08:00 ] 192.168.1.7 GET 192.168.1.7/x00730/public/apis/v1/recently_itc?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.372021s] [吞吐率：2.69req/s] [内存消耗：3,721.71kb] [文件加载：136]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.dog',
+    2 => 'recentlyItc',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.24:8080/',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'origin' => 'http://192.168.1.24:8080',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Dog->recentlyItc[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Dog.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:44:35+08:00 ] 192.168.1.7 GET 192.168.1.7/x00730/public/apis/v1/recently_itc?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.083005s] [吞吐率：12.05req/s] [内存消耗：3,721.71kb] [文件加载：136]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.001000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.007000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.002000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.dog',
+    2 => 'recentlyItc',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.24:8080/',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'origin' => 'http://192.168.1.24:8080',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Dog->recentlyItc[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Dog.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:44:35+08:00 ] 192.168.1.7 GET 192.168.1.7/x00730/public/apis/v1/user_info?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.107006s] [吞吐率：9.35req/s] [内存消耗：4,063.37kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'getUserInfo',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.24:8080/',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+  'origin' => 'http://192.168.1.24:8080',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->getUserInfo[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:44:38+08:00 ] 192.168.1.24 POST 192.168.1.7/x00730/public/apis/v1/api/Finance/currency
+[运行时间：0.490028s] [吞吐率：2.04req/s] [内存消耗：2,218.84kb] [文件加载：118]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003001s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:44:59+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.112006s] [吞吐率：8.93req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:45:06+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.080005s] [吞吐率：12.50req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.005001s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:45:10+08:00 ] 192.168.1.24 POST 192.168.1.7/x00730/public/apis/v1/api/Finance/currency
+[运行时间：0.120007s] [吞吐率：8.33req/s] [内存消耗：2,218.85kb] [文件加载：118]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:45:21+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.081004s] [吞吐率：12.35req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:45:26+08:00 ] 192.168.1.24 POST 192.168.1.7/x00730/public/apis/v1/withdraw
+[运行时间：0.100005s] [吞吐率：10.00req/s] [内存消耗：4,006.62kb] [文件加载：136]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'withdraw',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'content-length' => '82',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'money_position' => '',
+  'password' => '123456',
+  'money' => '0',
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->withdraw[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [402][G:\phpstudy\WWW\x00730\application\apis\validate\BaseValidate.php:14]
+---------------------------------------------------------------
+[ 2020-08-10T18:45:58+08:00 ] 192.168.1.24 POST 192.168.1.7/x00730/public/apis/v1/withdraw
+[运行时间：0.051002s] [吞吐率：19.61req/s] [内存消耗：4,006.66kb] [文件加载：136]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'withdraw',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'content-length' => '88',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'money_position' => '',
+  'password' => '123456',
+  'money' => '8000.00',
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001001s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->withdraw[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [402][G:\phpstudy\WWW\x00730\application\apis\validate\BaseValidate.php:14]
+---------------------------------------------------------------
+[ 2020-08-10T18:46:13+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.090006s] [吞吐率：11.11req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:46:18+08:00 ] 192.168.1.24 POST 192.168.1.7/x00730/public/apis/v1/withdraw
+[运行时间：0.070004s] [吞吐率：14.28req/s] [内存消耗：4,006.62kb] [文件加载：136]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'withdraw',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'content-length' => '82',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'money_position' => '',
+  'password' => '123456',
+  'money' => '0',
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.012000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->withdraw[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [402][G:\phpstudy\WWW\x00730\application\apis\validate\BaseValidate.php:14]
+---------------------------------------------------------------
+[ 2020-08-10T18:46:23+08:00 ] 192.168.1.24 POST 192.168.1.7/x00730/public/apis/v1/withdraw
+[运行时间：0.079004s] [吞吐率：12.66req/s] [内存消耗：4,006.62kb] [文件加载：136]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'withdraw',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'content-length' => '82',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'money_position' => '',
+  'password' => '123456',
+  'money' => '0',
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->withdraw[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [402][G:\phpstudy\WWW\x00730\application\apis\validate\BaseValidate.php:14]
+---------------------------------------------------------------
+[ 2020-08-10T18:46:46+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.087005s] [吞吐率：11.49req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:47:01+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.096006s] [吞吐率：10.42req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003001s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:47:08+08:00 ] 192.168.1.24 POST 192.168.1.7/x00730/public/apis/v1/withdraw
+[运行时间：0.087005s] [吞吐率：11.49req/s] [内存消耗：4,006.70kb] [文件加载：136]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'withdraw',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'content-length' => '130',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'money_position' => '工商银行-12321-qwewq',
+  'password' => '123456',
+  'money' => '0',
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->withdraw[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [402][G:\phpstudy\WWW\x00730\application\apis\validate\BaseValidate.php:14]
+---------------------------------------------------------------
+[ 2020-08-10T18:48:54+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.268015s] [吞吐率：3.73req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.012000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:48:59+08:00 ] 192.168.1.24 POST 192.168.1.7/x00730/public/apis/v1/withdraw
+[运行时间：0.089005s] [吞吐率：11.24req/s] [内存消耗：4,006.70kb] [文件加载：136]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.005000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'withdraw',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'content-length' => '128',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'money_position' => '工商银行-12321-qwewq',
+  'paypwd' => '123456',
+  'money' => '0',
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.002000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->withdraw[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [402][G:\phpstudy\WWW\x00730\application\apis\validate\BaseValidate.php:14]
+---------------------------------------------------------------
+[ 2020-08-10T18:49:10+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.107006s] [吞吐率：9.35req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.005001s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:49:16+08:00 ] 192.168.1.24 POST 192.168.1.7/x00730/public/apis/v1/withdraw
+[运行时间：0.060003s] [吞吐率：16.67req/s] [内存消耗：4,043.86kb] [文件加载：131]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'withdraw',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'content-length' => '128',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'money_position' => '工商银行-12321-qwewq',
+  'paypwd' => '123456',
+  'money' => '0',
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->withdraw[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:49:27+08:00 ] 192.168.1.24 POST 192.168.1.7/x00730/public/apis/v1/withdraw
+[运行时间：0.082005s] [吞吐率：12.19req/s] [内存消耗：4,043.86kb] [文件加载：131]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003001s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'withdraw',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'content-length' => '130',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'money_position' => '工商银行-12321-qwewq',
+  'paypwd' => '123456',
+  'money' => '234',
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->withdraw[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:49:45+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=5e786173-ef43-46b0-9bf6-90f3807a3c8a
+[运行时间：0.088006s] [吞吐率：11.36req/s] [内存消耗：4,066.64kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'ApiPOST Runtime +https://www.apipost.cn',
+  'accept-language' => 'zh-CN',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => '5e786173-ef43-46b0-9bf6-90f3807a3c8a',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:50:40+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.088005s] [吞吐率：11.36req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.004001s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:50:45+08:00 ] 192.168.1.24 GET 192.168.1.7/x00730/public/apis/v1/my_bank?token=d5f5b749-a81f-4713-9570-a91dcf84ec41
+[运行时间：0.088005s] [吞吐率：11.36req/s] [内存消耗：4,068.58kb] [文件加载：132]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'myBank',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://localhost:8080/',
+  'origin' => 'http://localhost:8080',
+  'accept' => '*/*',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
+  'connection' => 'close',
+  'host' => '192.168.1.7',
+)
+[ info ] [ PARAM ] array (
+  'token' => 'd5f5b749-a81f-4713-9570-a91dcf84ec41',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003000s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->myBank[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
