@@ -14894,3 +14894,37 @@
 [ info ] [ DB ] INIT mysql
 [ info ] [ RUN ] app\apis\controller\v1\MyTeam->getMyTeamNum[ E:\work\x00730\application\apis\controller\v1\MyTeam.php ]
 [ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-10T18:39:36+08:00 ] 127.0.0.1 GET www.kj.com/apis/v1/recommend?token=5e786173-ef43-46b0-9bf6-90f3807a3c8a
+[运行时间：0.083007s] [吞吐率：12.05req/s] [内存消耗：4,423.48kb] [文件加载：130]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002773s ]
+[ info ] [ LANG ] E:\work\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000499s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'recommend',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'ApiPOST Runtime +https://www.apipost.cn',
+  'accept-language' => 'zh-CN',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.kj.com',
+)
+[ info ] [ PARAM ] array (
+  'token' => '5e786173-ef43-46b0-9bf6-90f3807a3c8a',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001350s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->recommend[ E:\work\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
