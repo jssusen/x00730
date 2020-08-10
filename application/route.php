@@ -27,7 +27,7 @@ Route::get('apis/:version/money_log','apis/:version.member/moneyLog');//羽化�
 Route::get('apis/:version/my_apply','apis/:version.member/myApply');//我的预约
 
 Route::get('apis/:version/share_line','apis/:version.MyTeam/shareLine');//我的团队
-Route::post('apis/:version/check/pw','apis/:version.MyTeam/checkPasswd');//我的团队
+Route::post('apis/:version/check/pw','apis/:version.MyTeam/checkPasswd');//修改密码
 
 
 
@@ -57,7 +57,10 @@ Route::post('apis/:version/buy_ict','apis/:version.dog/buyIct');//购买矿机
 Route::get('apis/:version/bank','apis/:version.member/bank');//银行卡列表
 Route::post('apis/:version/add_bank','apis/:version.member/addBank');//添加银行卡
 Route::get('apis/:version/my_bank','apis/:version.member/myBank');//我的银行卡
-Route::get('apis/:version/withdraw','apis/:version.member/withdraw');//开始提现
+Route::post('apis/:version/withdraw','apis/:version.member/withdraw');//开始提现
+Route::post('apis/:version/set_default','apis/:version.member/setDefault');//设置默认
+
+
 Route::get('apis/:version/support_type','apis/:version.member/supportType');//账户类型
 
 Route::get('apis/:version/save_money','apis/:version.TimeEvent/saveUserMoney');//定时器用户每日发送

@@ -8,7 +8,7 @@ class WorkOrder extends  BaseModel
 {
     private   $request;
     protected $name ="work_order";
-    public function initialize(){
+    public function _initialize(){
         parent::initialize();
         $this->request=Request::instance();
     }

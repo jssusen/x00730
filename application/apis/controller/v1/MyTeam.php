@@ -8,6 +8,7 @@ use app\apis\model\Invest;
 use app\apis\model\Member as MemberModel;
 use app\apis\model\MemberGroup;
 use app\apis\model\Withdrawal;
+use app\apis\validate\CheckPasswd;
 use app\apis\validate\ShareLine;
 use app\apis\validate\Token;
 use app\apis\validate\UserInfo;
@@ -96,20 +97,35 @@ class MyTeam extends BaseController
      * 修改密码
      */
     public function checkPasswd(Request $request){
-        (new UserInfo())->goCheck();
+        (new CheckPasswd())->goCheck();
         $postdata = $request->post();
-        $user = $this->member->userInfo($postdata,"id,status,re_level,share_income,password");
+        $user = $this->member->userInfo($postdata,"id,status,re_level,share_income,password,paypwd");
         if (!$user["status"]) return $this->error("该账户已被禁止");
-        if(saltPassword($postdata['r_passwd']) != $user['data']['password']) return $this->error("原密码不正确");
-        if(saltPassword($postdata['n_passwd']) == $user['data']['password']) return $this->error("修改的密码不能和原始密码一样");
-        if($postdata['n_passwd_two'] != $postdata['n_passwd'] ) return $this->error("新密码两次不一样");
+        if ($postdata["type"]==1){  //登录密码
+            if(saltPassword($postdata['r_passwd']) != $user['data']['password']) return $this->error("原密码不正确");
+            if(saltPassword($postdata['n_passwd']) == $user['data']['password']) return $this->error("修改的密码不能和原始密码一样");
+            if($postdata['n_passwd_two'] != $postdata['n_passwd'] ) return $this->error("新密码两次不一样");
+            $isOk =   $this->member
+                ->where("id",$user["data"]["id"])
+                ->update(["password"=>saltPassword($postdata["n_passwd"])]);
+            if(!$isOk) return $this->error("修改密码失败");
+            return $this->success("修改密码成功");
+        }
 
-        $updateres = $this->member->where([
-            'token'=>$postdata['token'],
-            'update' => time()])
-            ->update(['password'=>saltPassword($postdata['n_passwd'])]);
-        if(!$updateres) return $this->error("修改密码失败");
-        return $this->success("修改密码成功");
+        if ($postdata["type"]==2){ //支付密码
+            if(saltPassword($postdata['r_passwd']) != $user['data']['paypwd']) return $this->error("原密码不正确");
+            if(saltPassword($postdata['n_passwd']) == $user['data']['paypwd']) return $this->error("修改的密码不能和原始密码一样");
+            if($postdata['n_passwd_two'] != $postdata['n_passwd'] ) return $this->error("新密码两次不一样");
+            $isOk = $this->member
+                ->where("id",$user["data"]["id"])
+                ->update(["paypwd"=>saltPassword($postdata["n_passwd"])]);
+            if(!$isOk) return $this->error("修改密码失败");
+            return $this->success("修改密码成功");
+        }
+
+
+
+
     }
 
 

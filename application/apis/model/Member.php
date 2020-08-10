@@ -14,13 +14,50 @@ class Member extends  BaseModel
 
     protected function getAvatarImageAttr($value){
         $request = Request::instance();
-        $finalUrl = $request->domain()."/newinfo/public".$value;
+        $finalUrl = $request->domain()."/x00730/public".$value;
         return $finalUrl;
     }
 
     public  static function findAllUser(){
 
        return Db::name("member")->where("status",1)->select();
+    }
+
+    public function checkShareLevel($rid){
+        $res = self::where(['id' => $rid])->find();
+        if($res){
+            switch($res['share_group']){
+                case 1:return '初级推广大使';break;
+                case 2:return '中级推广大使';break;
+                case 3:return '高级推广大使';break;
+                default:break;
+            }
+        }
+    }
+
+    /**
+     * 用户下单成功之后，去进行直推上级的级别认定
+     * @param $reid
+     * @throws \think\Exception
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public static function countEffectShare($reid){
+        $res =  self::where([
+            're_id' => $reid,
+            'is_valid' => 1
+        ])->select();
+        if($res){
+            $effectmember = count($res);
+            switch ($effectmember){
+                case 5: self::where(['id' => $reid])->setInc('share_group',1);break;
+                case 10: self::where(['id' => $reid])->setInc('share_group',2);break;
+                case 20: self::where(['id' => $reid])->setInc('share_group',3);break;
+                default:break;
+            }
+
+        }
     }
 
 

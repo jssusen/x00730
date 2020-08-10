@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"G:\phpstudy\WWW\x00730\public/../application/admin\view\history\withdrawal\edit.html";i:1597047082;s:65:"G:\phpstudy\WWW\x00730\application\admin\view\layout\default.html";i:1588765312;s:62:"G:\phpstudy\WWW\x00730\application\admin\view\common\meta.html";i:1588765312;s:64:"G:\phpstudy\WWW\x00730\application\admin\view\common\script.html";i:1588765312;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"G:\phpstudy\WWW\x00730\public/../application/admin\view\proclamation\news\edit.html";i:1595322314;s:65:"G:\phpstudy\WWW\x00730\application\admin\view\layout\default.html";i:1588765312;s:62:"G:\phpstudy\WWW\x00730\application\admin\view\common\meta.html";i:1588765312;s:64:"G:\phpstudy\WWW\x00730\application\admin\view\common\script.html";i:1588765312;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -52,59 +52,42 @@
                             <div class="content">
                                 <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
-
-
-
-
-
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Money'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2"><?php echo __('New_category_id'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-money" data-rule="required"  readonly class="form-control" step="0.01" name="row[money]" type="number" value="<?php echo htmlentities($row['money']); ?>">
+            <input id="c-new_category_id" data-rule="required" data-source="proclamation/New_category/index" class="form-control selectpage" name="row[new_category_id]" type="text" value="<?php echo htmlentities($row['new_category_id']); ?>">
         </div>
     </div>
-
-
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Procedures_money'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Titile'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-procedures_money" data-rule="required"  readonly class="form-control" step="0.01" name="row[procedures_money]" type="number" value="<?php echo htmlentities($row['procedures_money']); ?>">
+            <input id="c-titile" data-rule="required" class="form-control" name="row[titile]" type="text" value="<?php echo htmlentities($row['titile']); ?>">
         </div>
     </div>
-
-
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Really_money'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Content'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-really_money" data-rule="required"  readonly class="form-control" step="0.01" name="row[really_money]" type="number" value="<?php echo htmlentities($row['really_money']); ?>">
+            <textarea id="c-content" data-rule="required" class="form-control editor" rows="5" name="row[content]" cols="50"><?php echo htmlentities($row['content']); ?></textarea>
         </div>
     </div>
-
-
-
-
-
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Money_position'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Sort'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-money_position"  readonly data-rule="required" class="form-control" name="row[money_position]" type="text" value="<?php echo htmlentities($row['money_position']); ?>">
+            <input id="c-sort" class="form-control" name="row[sort]" type="number" value="<?php echo htmlentities($row['sort']); ?>">
         </div>
     </div>
-
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Is_pay'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Status'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-
-            <select  id="c-is_pay" data-rule="required" class="form-control selectpicker" name="row[is_pay]">
-                <?php if(is_array($isPayList) || $isPayList instanceof \think\Collection || $isPayList instanceof \think\Paginator): if( count($isPayList)==0 ) : echo "" ;else: foreach($isPayList as $key=>$vo): ?>
-                <option value="<?php echo $key; ?>" <?php if(in_array(($key), is_array($row['is_pay'])?$row['is_pay']:explode(',',$row['is_pay']))): ?>selected<?php endif; ?>><?php echo $vo; ?></option>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-            </select>
+            
+            <div class="radio">
+            <?php if(is_array($statusList) || $statusList instanceof \think\Collection || $statusList instanceof \think\Paginator): if( count($statusList)==0 ) : echo "" ;else: foreach($statusList as $key=>$vo): ?>
+            <label for="row[status]-<?php echo $key; ?>"><input id="row[status]-<?php echo $key; ?>" name="row[status]" type="radio" value="<?php echo $key; ?>" <?php if(in_array(($key), is_array($row['status'])?$row['status']:explode(',',$row['status']))): ?>checked<?php endif; ?> /> <?php echo $vo; ?></label> 
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+            </div>
 
         </div>
     </div>
-
-
     <div class="form-group layer-footer">
         <label class="control-label col-xs-12 col-sm-2"></label>
         <div class="col-xs-12 col-sm-8">

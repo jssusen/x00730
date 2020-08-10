@@ -58,7 +58,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'money', title: __('Money'), operate:'BETWEEN'},
                         {field: 'procedures_money', title: __('Procedures_money'), operate:'BETWEEN'},
                         {field: 'really_money', title: __('Really_money'), operate:'BETWEEN'},
-                        {field: 'remark', title: __('Remark')},
+
                         {field: 'money_position', title: __('Money_position')},
                         {field: 'createtime', title: "创建时间",operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
                         {field: 'updatetime', title: "更改时间",operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},

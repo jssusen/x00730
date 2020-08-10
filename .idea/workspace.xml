@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f78c01cb-48a5-474f-8aef-872a582d54c9" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/application/apis/controller/v1/Home.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/apis/controller/v1/MyTeam.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/apis/model/Setting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/apis/model/Withdrawal.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/controller/v1/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/controller/v1/Member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/model/History.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/model/History.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/model/Invest.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/model/Invest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/model/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/model/Member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/model/MemberGroup.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/model/MemberGroup.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/validate/BaseValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/validate/BaseValidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/validate/Invest.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/validate/Invest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/validate/RegisterSave.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/validate/RegisterSave.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/validate/Token.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/validate/Token.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/validate/UserInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/validate/UserInfo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/common.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/common.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/route.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/route.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runtime/log/202008/06.log" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/log/202008/06.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/apis/controller/v1/TimeEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/controller/v1/TimeEvent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/log/202008/10.log" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/log/202008/10.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,16 +59,19 @@
       <path value="$PROJECT_DIR$/vendor/pimple/pimple" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-helper" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-queue" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-80" />
-    <option name="y" value="114" />
-    <option name="width" value="1639" />
-    <option name="height" value="988" />
+  <component name="ProjectId" id="1ft6qlRuSV3ZnpSEsonlbnauGLW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -164,11 +152,13 @@
       <workItem from="1595382059799" duration="2922000" />
       <workItem from="1595385139105" duration="1691000" />
       <workItem from="1595388064596" duration="1537000" />
+      <workItem from="1597025240782" duration="6591000" />
+      <workItem from="1597039410545" duration="1371000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="624" y="216" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1596701090228">
@@ -179,9 +169,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1014" y="198" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596706263231" />
-    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1596704965940">
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1596793746440">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596704965940" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1596793746440" />
   </component>
 </project>

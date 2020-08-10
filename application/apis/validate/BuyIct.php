@@ -8,11 +8,11 @@ class BuyIct extends BaseValidate
 {
     protected $rule = [
         'token'		=>	'require',
-        "type"      =>  "require|isItcType",
+        "type"      =>  "require",
         "dog_id"    =>"require|isInt",
         "dog_name"      =>  "require",
-        "money"      =>  "require|isInt",
-        "period_day"      =>  "require|isInt",
+        "money"      =>  "require",
+        "period_day"      =>  "require",
         "gains"   =>  "require",
     ];
 
@@ -20,7 +20,6 @@ class BuyIct extends BaseValidate
     protected $message = [
         "token.require"  =>"token不能为空",
         "type.require"   =>"矿机类型不能为空",
-        "type.isItcType" =>"矿机类型非法",
         "dog_id.require"=>"矿机Id不能为空",
         "dog_id.isInt"=>"矿机Id非法",
         "dog_name.require"=>"矿机名称不能为空",

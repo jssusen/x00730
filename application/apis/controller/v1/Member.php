@@ -24,6 +24,7 @@ use think\Request;
 use app\apis\validate\Withdraw;
 use app\apis\model\MemberBank;
 use app\apis\validate\AddBank;
+use app\apis\validate\SetDefault;
 
 Loader::import('PhpQrcode.phpqrcode',EXTEND_PATH,'.php');
 
@@ -70,6 +71,11 @@ class Member extends BaseController
             return $this->error("网络异常,充值失败");
         }
         return $this->success("充值成功请等待审核");
+
+
+
+
+
     }
 
     //充值页面接口
@@ -117,7 +123,8 @@ class Member extends BaseController
     public function addBank(){
         (new AddBank())->goCheck();
         $data =  $this->request->param();
-        $user = MemberModel::memberInfo($data,"id,status");
+        $user = MemberModel::memberInfo($data,"id,status,paypwd");
+        if (saltPassword($data["paypwd"])!==($user["data"]["paypwd"])) return $this->error("支付密码不正确");
         if(!$user["status"]) return $this->error("账户被封禁");
         $data["uid"]=$user["data"]["id"];
         $isOk= MemberBank::addBank($data);
@@ -130,7 +137,7 @@ class Member extends BaseController
         $data =  $this->request->param();
         $user = MemberModel::memberInfo($data,"id,status");
         if(!$user["status"]) return $this->error("账户被封禁");
-        $list = MemberBank::where("uid",$user["data"]["id"])->select();
+        $list["list"] = MemberBank::where("uid",$user["data"]["id"])->order("is_default desc")->select();
         $list["integrals"] =MemberModel::get($user["data"]["id"])->value("integrals");
         $withdrawalRange =setting("withdrawal_range")["withdrawal_range"];
         $min_money= explode("|",$withdrawalRange);
@@ -146,8 +153,9 @@ class Member extends BaseController
     public function withdraw(){
         (new Withdraw())->goCheck();
         $data =  $this->request->param();
-        $user = MemberModel::memberInfo($data,"id,status,is_valid,integrals");
+        $user = MemberModel::memberInfo($data,"id,status,is_valid,integrals,paypwd");
         if(!$user["status"]) return $this->error("账户被封禁");
+        if ($user["data"]["paypwd"]!==saltPassword($data["paypwd"])) return $this->error("支付密码不正确");
         $withdrawal_time=setting("withdrawal_time")["withdrawal_time"];
         $withdrawal= explode("|",$withdrawal_time);
         $withdrawal_range=setting("withdrawal_range")["withdrawal_range"];
@@ -160,16 +168,45 @@ class Member extends BaseController
         if (!$user["data"]["is_valid"]) return $this->error("您不是激活会员，不能提现");
         $count = Withdrawal::finDayWithrawal($user["data"]["id"]);
         if ($count>=$range["1"]) return $this->error("今日提现已达上限");
-        //当日第一次提现
-        if (!$count){
+
+        Db::startTrans();
+        try {
+            Db::name("member")->where("id",$user["data"]["id"])->setDec("integrals",$data["money"]);
             Withdrawal::createDrawal($data);
+            Db::commit();
+        } catch (\Exception $e) {
+            // 回滚事务
+            Db::rollback();
+            return $this->error("网络异常,充值失败");
         }
+        return $this->success("充值成功请等待审核");
+       ;
+
+
 
 
 
     }
 
+    //设置默认
+    public function setDefault(){
+        (new SetDefault())->goCheck();
+        $data =  $this->request->param();
+        $user = MemberModel::memberInfo($data,"id,status,is_valid,integrals,paypwd");
+        if(!$user["status"]) return $this->error("账户被封禁");
+        $data["uid"]=$user["data"]["id"];
+        Db::startTrans();
+        try {
+            MemberBank::setDefault($data);
+            Db::commit();
+        } catch (\Exception $e) {
+            // 回滚事务
+            Db::rollback();
+            return $this->error("网络异常,充值失败");
+        }
+        return $this->success("设置成功");
 
+    }
 
 
 
