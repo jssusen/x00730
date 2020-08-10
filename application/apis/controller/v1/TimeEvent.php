@@ -152,6 +152,14 @@ class TimeEvent extends BaseController
                         'share_income' => $share_income
                     ];
                     (new Member())->where(['id' => $v['user_id']])->update($updatedata);
+                    $userdata = Member::get($k["uid"]);
+                    History::create([
+                        "uid"=>$v1['user_id'],
+                        "money"=> $share_income,
+                        "type"=>"itc_income",
+                        "remark"=>"来自{$userdata['user_name']}矿机{$k["dog_name"]}收益",
+                        "option"=>"income"      //写日志
+                    ]);
                 }
                 //在最后一天改状态
                 if($k["payment_time"]==date("Y-m-d H:i")) {
@@ -246,14 +254,22 @@ class TimeEvent extends BaseController
                     }
 
                     //更新自己的上级返利
-                    foreach ($insertMoney as $k => $v){
-                        $momberdetail = Member::get($v['user_id']);
-                        $share_income = $k["return_money_day"]*$v['rebate'];
+                    foreach ($insertMoney as $k1 => $v1){
+                        $momberdetail = Member::get($v1['user_id']);
+                        $share_income = $k1["return_money_day"]*$v1['rebate'];
                         $updatedata = [
                             'integrals' => $momberdetail['integrals']+$share_income,
                             'share_income' => $share_income
                         ];
-                        (new Member())->where(['id' => $v['user_id']])->update($updatedata);
+                        (new Member())->where(['id' => $v1['user_id']])->update($updatedata);
+                        $userdata = Member::get($k["uid"]);
+                        History::create([
+                            "uid"=>$v1['user_id'],
+                            "money"=> $share_income,
+                            "type"=>"itc_income",
+                            "remark"=>"来自{$userdata['user_name']}矿机{$k["dog_name"]}收益",
+                            "option"=>"income"      //写日志
+                        ]);
                     }
 
                     Db::name("match")

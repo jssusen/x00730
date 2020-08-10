@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f78c01cb-48a5-474f-8aef-872a582d54c9" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/controller/v1/Dog.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/controller/v1/Dog.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/apis/controller/v1/TimeEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/controller/v1/TimeEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/apis/model/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/apis/model/Member.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/log/202008/10.log" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/log/202008/10.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +153,7 @@
       <workItem from="1595385139105" duration="1691000" />
       <workItem from="1595388064596" duration="1537000" />
       <workItem from="1597025240782" duration="6591000" />
-      <workItem from="1597039410545" duration="585000" />
+      <workItem from="1597039410545" duration="1371000" />
     </task>
     <servers />
   </component>
