@@ -40,6 +40,7 @@ Route::get('apis/:version/get_experience_machine','apis/:version.dog/getExperien
 Route::get('apis/:version/get_hire_itc','apis/:version.dog/getHireItc');//租矿机
 Route::get('apis/:version/my_dog','apis/:version.member/myDog');//我的矿机
 
+Route::post('apis/:version/logout','apis/:version.member/logout');//退出登录
 
 Route::get('apis/:version/project/rule','apis/:version.Home/projectRule');//首页项目介绍
 

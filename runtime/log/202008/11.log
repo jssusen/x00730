@@ -66,3 +66,87 @@
 [ info ] [ DB ] INIT mysql
 [ info ] [ RUN ] app\apis\controller\v1\MyTeam->getUserInOutMoney[ E:\work\x00730\application\apis\controller\v1\MyTeam.php ]
 [ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-11T10:51:18+08:00 ] 127.0.0.1 POST www.kj.com/apis/v1/logout
+[运行时间：0.048273s] [吞吐率：20.72req/s] [内存消耗：2,345.18kb] [文件加载：117]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002807s ]
+[ info ] [ LANG ] E:\work\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000487s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-11T10:51:37+08:00 ] 127.0.0.1 POST www.kj.com/apis/v1/logout
+[运行时间：0.058745s] [吞吐率：17.02req/s] [内存消耗：4,282.57kb] [文件加载：131]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002342s ]
+[ info ] [ LANG ] E:\work\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000286s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'logout',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'ApiPOST Runtime +https://www.apipost.cn',
+  'origin' => 'http://www.kj.com',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryouqzRmLpwMBjuPgH',
+  'accept-language' => 'zh-CN',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '172',
+  'connection' => 'close',
+  'host' => 'www.kj.com',
+)
+[ info ] [ PARAM ] array (
+  'token' => '41512777-5a3b-491f-bf26-fb0c83052033',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001525s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->logout[ E:\work\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [0]致命错误: Class 'app\apis\controller\v1\Users' not found[E:\work\x00730\application\apis\controller\v1\Member.php:43]
+---------------------------------------------------------------
+[ 2020-08-11T10:52:22+08:00 ] 127.0.0.1 POST www.kj.com/apis/v1/logout
+[运行时间：0.054148s] [吞吐率：18.47req/s] [内存消耗：4,299.51kb] [文件加载：128]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002067s ]
+[ info ] [ LANG ] E:\work\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000295s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.member',
+    2 => 'logout',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'ApiPOST Runtime +https://www.apipost.cn',
+  'origin' => 'http://www.kj.com',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryyCZ0ZCNGtgchXjFW',
+  'accept-language' => 'zh-CN',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '172',
+  'connection' => 'close',
+  'host' => 'www.kj.com',
+)
+[ info ] [ PARAM ] array (
+  'token' => '41512777-5a3b-491f-bf26-fb0c83052033',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001295s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->logout[ E:\work\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File

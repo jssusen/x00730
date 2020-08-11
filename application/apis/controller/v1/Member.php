@@ -38,6 +38,12 @@ class Member extends BaseController
         $this->member =new MemberModel();
     }
 
+    public function logout(Request $request){
+        $token = request()->post('token', '');
+        if ($token) $this->member->where('token',$token)->update(['token'=>'']);
+        return $this->success('退出登录成功',$data=[]);
+    }
+
     //获取用户信息
     public function getUserInfo(){
         (new UserInfo())->goCheck();
