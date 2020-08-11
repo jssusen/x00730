@@ -12,7 +12,10 @@ class History extends BaseModel
     }
 
     public static function findMoneyLogByUserId($uid){
-        return  self::where("uid",$uid)->field('money,type,remark,updatetime,option')->paginate();
+        return  self::alias('hi')
+                    ->where("hi.uid",$uid)
+                    ->join('match ma','ma.uid = hi.uid')
+                    ->field('hi.money,hi.type,hi.remark,hi.updatetime,hi.option,ma.order_id')->paginate();
     }
 
     public static function findMoneyLog($uid){

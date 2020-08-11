@@ -1,0 +1,68 @@
+---------------------------------------------------------------
+[ 2020-08-11T10:14:31+08:00 ] 127.0.0.1 GET www.kj.com/apis/v1/money/log?token=5e786173-ef43-46b0-9bf6-90f3807a3c82
+[运行时间：0.100230s] [吞吐率：9.98req/s] [内存消耗：3,994.89kb] [文件加载：137]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000131s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003366s ]
+[ info ] [ LANG ] E:\work\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000564s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.MyTeam',
+    2 => 'getUserInOutMoney',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'ApiPOST Runtime +https://www.apipost.cn',
+  'accept-language' => 'zh-CN',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.kj.com',
+)
+[ info ] [ PARAM ] array (
+  'token' => '5e786173-ef43-46b0-9bf6-90f3807a3c82',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001905s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\MyTeam->getUserInOutMoney[ E:\work\x00730\application\apis\controller\v1\MyTeam.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-11T10:36:56+08:00 ] 127.0.0.1 GET www.kj.com/apis/v1/money/log?token=5e786173-ef43-46b0-9bf6-90f3807a3c82
+[运行时间：0.070159s] [吞吐率：14.25req/s] [内存消耗：3,993.86kb] [文件加载：137]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002922s ]
+[ info ] [ LANG ] E:\work\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000529s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'apis',
+    1 => 'v1.MyTeam',
+    2 => 'getUserInOutMoney',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'user-agent' => 'ApiPOST Runtime +https://www.apipost.cn',
+  'accept-language' => 'zh-CN',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.kj.com',
+)
+[ info ] [ PARAM ] array (
+  'token' => '5e786173-ef43-46b0-9bf6-90f3807a3c82',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001694s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\MyTeam->getUserInOutMoney[ E:\work\x00730\application\apis\controller\v1\MyTeam.php ]
+[ info ] [ LOG ] INIT File
