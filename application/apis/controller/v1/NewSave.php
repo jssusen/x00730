@@ -43,7 +43,7 @@ class NewSave extends BaseController
         $info = $this->news->getDetails($data["id"]);
         return $this->success("获取成功",$info);
 
-        
+
     }
 
 

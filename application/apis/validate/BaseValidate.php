@@ -37,6 +37,9 @@ class BaseValidate extends  Validate
         }
     }
 
+    
+
+
     protected function isInt($value)
     {
         if(is_numeric($value) && is_int($value+0) && ($value+0) > 0){

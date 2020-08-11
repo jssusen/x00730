@@ -49,6 +49,8 @@ Route::get('apis/:version/recharge/log','apis/:version.MyTeam/rechargeUserMoney'
 
 Route::get('apis/:version/my/info','apis/:version.MyTeam/userInfoByToken');//我的页面信息
 
+Route::get('apis/:version/team/count','apis/:version.MyTeam/getMyTeamNum');//我的团队数
+
 Route::get('apis/:version/my/cash','apis/:version.MyTeam/getCashByToken');//我的提现记录
 
 
@@ -66,6 +68,11 @@ Route::get('apis/:version/support_type','apis/:version.member/supportType');//�
 
 Route::get('apis/:version/save_money','apis/:version.TimeEvent/saveUserMoney');//定时器用户每日发送
 Route::get('apis/:version/save_itc_money','apis/:version.TimeEvent/itcIncome');//定时器矿机每分查询
+
+
+
+
+Route::get('apis/:version/test/dog','apis/:version.Dog/testUserReId');//测试
 
 
 

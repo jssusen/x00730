@@ -451,7 +451,8 @@ class Member extends BaseController
         }
         $savePath = APP_PATH . '/qrcode/';
         $webPath = '/qrcode/';
-        $qrData = 'http://www.cnblogs.com/nickbai?id='.$user["data"]["id"];
+//        $qrData = '192.168.1.7/#/pages/auth/register?type=0&id='.$user["data"]["id"];
+        $qrData = 'www.baidu.com';
         $qrLevel = 'H';
         $qrSize = '8';
         $savePrefix = 'NickBai'.$user["data"]["id"];

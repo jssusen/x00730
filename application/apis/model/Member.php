@@ -23,20 +23,43 @@ class Member extends  BaseModel
        return Db::name("member")->where("status",1)->select();
     }
 
-    public function checkShareLevel($rid){
-        $res = self::where(['id' => $rid])->find();
+
+    public function getchildren($uid,$isvalid=0){
+        $arr = $this->where(['re_id' => $uid,'is_valid'=>$isvalid])->select();
+        return $this->sortChildren($arr,$isvalid);
+    }
+
+    public function sortChildren($arr,$isvalidArg=0){
+        foreach($arr as $k => $v){
+            $children = $this->where(['re_id' => $v->id,'is_valid'=>$isvalidArg])->select();
+            array_push($arr,$children);
+            $this->sortChildren($children);
+        }
+        return $arr;
+    }
+    /**
+     * 处理推广等级数据
+     * @param $array
+     * @param $i
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function sortFindTeamUser(&$array,$i){
+        if($i > 5) return;
+        $res = $this->where(['id' => $array[$i]->re_id])->find();
+
         if($res){
-            switch($res['share_group']){
-                case 1:return '初级推广大使';break;
-                case 2:return '中级推广大使';break;
-                case 3:return '高级推广大使';break;
-                default:break;
-            }
+            array_push($array, $res);
+            $this->sortFindTeamUser($array, $i+1);
+        }else{
+            return;
         }
     }
 
+
     /**
-     * 用户下单成功之后，去进行直推上级的级别认定
+     * 用户下单成功之后，进行直推上级的级别认定
      * @param $reid
      * @throws \think\Exception
      * @throws \think\db\exception\DataNotFoundException

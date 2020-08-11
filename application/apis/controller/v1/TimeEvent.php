@@ -13,9 +13,8 @@ class TimeEvent extends BaseController
         parent::_initialize();
     }
 
-    //实时查询给用户发送金额 每分钟查询一次
+    //实时查询给用户发送金额   每分钟查询一次
     public function saveUserMoney(){
-
           $moeny =  setting("money_save")["money_save"];
           $userList =Member::findAllUser();
           $now_time = date("H:i");
@@ -157,7 +156,7 @@ class TimeEvent extends BaseController
                         "uid"=>$v1['user_id'],
                         "money"=> $share_income,
                         "type"=>"itc_income",
-                        "remark"=>"来自{$userdata['user_name']}矿机{$k["dog_name"]}收益",
+                        "remark"=>"来自{$userdata['user_name']}矿机{$k["dog_name"]}收益的分成",
                         "option"=>"income"      //写日志
                     ]);
                 }
