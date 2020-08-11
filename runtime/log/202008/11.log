@@ -1,4 +1,5 @@
 ---------------------------------------------------------------
+<<<<<<< HEAD
 [ 2020-08-11T10:18:43+08:00 ] 192.168.1.9 GET 192.168.1.9/x00730/public/dIXpRhaeVx.php/member/member?ref=addtabs
 [运行时间：0.474027s] [吞吐率：2.11req/s] [内存消耗：3,453.88kb] [文件加载：132]
 [ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.012001s ]
@@ -39949,17 +39950,32 @@ File
 [ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
 [ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
 [ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+=======
+[ 2020-08-11T10:14:31+08:00 ] 127.0.0.1 GET www.kj.com/apis/v1/money/log?token=5e786173-ef43-46b0-9bf6-90f3807a3c82
+[运行时间：0.100230s] [吞吐率：9.98req/s] [内存消耗：3,994.89kb] [文件加载：137]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000131s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003366s ]
+[ info ] [ LANG ] E:\work\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000564s ]
+>>>>>>> 79873d33574cdc5f82ef467674c570abcbcf2a83
 [ info ] [ ROUTE ] array (
   'type' => 'module',
   'module' => 
   array (
     0 => 'apis',
+<<<<<<< HEAD
     1 => 'v1.dog',
     2 => 'getHireItc',
+=======
+    1 => 'v1.MyTeam',
+    2 => 'getUserInOutMoney',
+>>>>>>> 79873d33574cdc5f82ef467674c570abcbcf2a83
   ),
   'convert' => false,
 )
 [ info ] [ HEADER ] array (
+<<<<<<< HEAD
   'accept-language' => 'zh-CN,zh;q=0.9',
   'accept-encoding' => 'gzip, deflate',
   'referer' => 'http://192.168.1.24:8081/',
@@ -39987,13 +40003,43 @@ File
 [ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.010001s ]
 [ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
 [ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000000s ]
+=======
+  'user-agent' => 'ApiPOST Runtime +https://www.apipost.cn',
+  'accept-language' => 'zh-CN',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.kj.com',
+)
+[ info ] [ PARAM ] array (
+  'token' => '5e786173-ef43-46b0-9bf6-90f3807a3c82',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001905s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\MyTeam->getUserInOutMoney[ E:\work\x00730\application\apis\controller\v1\MyTeam.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-11T10:36:56+08:00 ] 127.0.0.1 GET www.kj.com/apis/v1/money/log?token=5e786173-ef43-46b0-9bf6-90f3807a3c82
+[运行时间：0.070159s] [吞吐率：14.25req/s] [内存消耗：3,993.86kb] [文件加载：137]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000021s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002922s ]
+[ info ] [ LANG ] E:\work\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000529s ]
+>>>>>>> 79873d33574cdc5f82ef467674c570abcbcf2a83
 [ info ] [ ROUTE ] array (
   'type' => 'module',
   'module' => 
   array (
     0 => 'apis',
+<<<<<<< HEAD
     1 => 'v1.member',
     2 => 'myDog',
+=======
+    1 => 'v1.MyTeam',
+    2 => 'getUserInOutMoney',
+>>>>>>> 79873d33574cdc5f82ef467674c570abcbcf2a83
   ),
   'convert' => false,
 )
@@ -40003,6 +40049,7 @@ File
   'accept-encoding' => 'gzip, deflate',
   'accept' => 'application/json, text/javascript, */*; q=0.01',
   'connection' => 'close',
+<<<<<<< HEAD
   'host' => '192.168.1.9',
 )
 [ info ] [ PARAM ] array (
@@ -40022,18 +40069,52 @@ File
 [ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003001s ]
 [ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
 [ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+=======
+  'host' => 'www.kj.com',
+)
+[ info ] [ PARAM ] array (
+  'token' => '5e786173-ef43-46b0-9bf6-90f3807a3c82',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001694s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\MyTeam->getUserInOutMoney[ E:\work\x00730\application\apis\controller\v1\MyTeam.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-11T10:51:18+08:00 ] 127.0.0.1 POST www.kj.com/apis/v1/logout
+[运行时间：0.048273s] [吞吐率：20.72req/s] [内存消耗：2,345.18kb] [文件加载：117]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002807s ]
+[ info ] [ LANG ] E:\work\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000487s ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-11T10:51:37+08:00 ] 127.0.0.1 POST www.kj.com/apis/v1/logout
+[运行时间：0.058745s] [吞吐率：17.02req/s] [内存消耗：4,282.57kb] [文件加载：131]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000022s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002342s ]
+[ info ] [ LANG ] E:\work\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000286s ]
+>>>>>>> 79873d33574cdc5f82ef467674c570abcbcf2a83
 [ info ] [ ROUTE ] array (
   'type' => 'module',
   'module' => 
   array (
     0 => 'apis',
     1 => 'v1.member',
+<<<<<<< HEAD
     2 => 'myDog',
+=======
+    2 => 'logout',
+>>>>>>> 79873d33574cdc5f82ef467674c570abcbcf2a83
   ),
   'convert' => false,
 )
 [ info ] [ HEADER ] array (
   'user-agent' => 'ApiPOST Runtime +https://www.apipost.cn',
+<<<<<<< HEAD
   'accept-language' => 'zh-CN',
   'accept-encoding' => 'gzip, deflate',
   'accept' => 'application/json, text/javascript, */*; q=0.01',
@@ -40058,18 +40139,51 @@ File
 [ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003000s ]
 [ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
 [ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+=======
+  'origin' => 'http://www.kj.com',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryouqzRmLpwMBjuPgH',
+  'accept-language' => 'zh-CN',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '172',
+  'connection' => 'close',
+  'host' => 'www.kj.com',
+)
+[ info ] [ PARAM ] array (
+  'token' => '41512777-5a3b-491f-bf26-fb0c83052033',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001525s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->logout[ E:\work\x00730\application\apis\controller\v1\Member.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [0]致命错误: Class 'app\apis\controller\v1\Users' not found[E:\work\x00730\application\apis\controller\v1\Member.php:43]
+---------------------------------------------------------------
+[ 2020-08-11T10:52:22+08:00 ] 127.0.0.1 POST www.kj.com/apis/v1/logout
+[运行时间：0.054148s] [吞吐率：18.47req/s] [内存消耗：4,299.51kb] [文件加载：128]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000020s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.002067s ]
+[ info ] [ LANG ] E:\work\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.000295s ]
+>>>>>>> 79873d33574cdc5f82ef467674c570abcbcf2a83
 [ info ] [ ROUTE ] array (
   'type' => 'module',
   'module' => 
   array (
     0 => 'apis',
     1 => 'v1.member',
+<<<<<<< HEAD
     2 => 'myDog',
+=======
+    2 => 'logout',
+>>>>>>> 79873d33574cdc5f82ef467674c570abcbcf2a83
   ),
   'convert' => false,
 )
 [ info ] [ HEADER ] array (
   'user-agent' => 'ApiPOST Runtime +https://www.apipost.cn',
+<<<<<<< HEAD
   'accept-language' => 'zh-CN',
   'accept-encoding' => 'gzip, deflate',
   'accept' => 'application/json, text/javascript, */*; q=0.01',
@@ -40084,4 +40198,75 @@ File
 [ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001000s ]
 [ info ] [ DB ] INIT mysql
 [ info ] [ RUN ] app\apis\controller\v1\Member->myDog[ G:\phpstudy\WWW\x00730\application\apis\controller\v1\Member.php ]
+=======
+  'origin' => 'http://www.kj.com',
+  'content-type' => 'multipart/form-data; boundary=----WebKitFormBoundaryyCZ0ZCNGtgchXjFW',
+  'accept-language' => 'zh-CN',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '172',
+  'connection' => 'close',
+  'host' => 'www.kj.com',
+)
+[ info ] [ PARAM ] array (
+  'token' => '41512777-5a3b-491f-bf26-fb0c83052033',
+  'version' => 'v1',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.001295s ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\apis\controller\v1\Member->logout[ E:\work\x00730\application\apis\controller\v1\Member.php ]
+>>>>>>> 79873d33574cdc5f82ef467674c570abcbcf2a83
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2020-08-11T13:16:17+08:00 ] 192.168.1.9 GET 192.168.1.9/x00730/public/dIXpRhaeVx.php/order/match/index?addtabs=1&sort=id&order=desc&offset=0&limit=10&filter=%7B%7D&op=%7B%7D&_=1597118205710
+[运行时间：0.514030s] [吞吐率：1.95req/s] [内存消耗：4,373.44kb] [文件加载：148]
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000000s ]
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.019001s ]
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\thinkphp\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @app_dispatch [ RunTime:0.001000s ]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'order.match',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=hpleilg1hnfmm3djft7ui1chh8',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://192.168.1.9/x00730/public/dIXpRhaeVx.php/order/match?addtabs=1',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => '192.168.1.9',
+)
+[ info ] [ PARAM ] array (
+  'addtabs' => '1',
+  'sort' => 'id',
+  'order' => 'desc',
+  'offset' => '0',
+  'limit' => '10',
+  'filter' => '{}',
+  'op' => '{}',
+  '_' => '1597118205710',
+)
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\public/../application/admin\lang\zh-cn.php
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Common @module_init [ RunTime:0.003000s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] G:\phpstudy\WWW\x00730\public/../application/admin/lang/zh-cn/order/match.php
+[ info ] [ RUN ] app\admin\controller\order\Match->index[ G:\phpstudy\WWW\x00730\application\admin\controller\order\Match.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\AdminLog @app_end [ RunTime:0.001000s ]
 [ info ] [ LOG ] INIT File

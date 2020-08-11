@@ -38,6 +38,12 @@ class Member extends BaseController
         $this->member =new MemberModel();
     }
 
+    public function logout(Request $request){
+        $token = request()->post('token', '');
+        if ($token) $this->member->where('token',$token)->update(['token'=>'']);
+        return $this->success('退出登录成功',$data=[]);
+    }
+
     //获取用户信息
     public function getUserInfo(){
         (new UserInfo())->goCheck();
@@ -71,8 +77,6 @@ class Member extends BaseController
             return $this->error("网络异常,充值失败");
         }
         return $this->success("充值成功请等待审核");
-
-
 
 
 
@@ -187,7 +191,7 @@ class Member extends BaseController
             return $this->error("网络异常,充值失败");
         }
         return $this->success("充值成功请等待审核");
-       ;
+
 
 
 
