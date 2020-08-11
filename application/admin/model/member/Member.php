@@ -62,7 +62,7 @@ class Member extends Model
     }
     public function getTypeList()
     {
-        return ['integrals' => "羽化币", 'share_income' =>"推广收益" ];
+        return ['integrals' => "金额"];
     }
 
 

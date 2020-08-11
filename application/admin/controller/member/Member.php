@@ -131,10 +131,31 @@ class Member extends Backend
             try{
                 if ($params["money"]>0){
                     Db::name("member")->where("id",$params["id"])->setInc($params["type"],$params["money"]);
+                    Db::name("history")->insert(
+                        [
+                            "uid"=>$params["id"],
+                            "money"=>$params["money"],
+                            "type"=>"integrals",
+                            "createtime"=>time(),
+                            "option"    =>"income",
+                            "remark"=>"充值收益"
+                        ]
+                    );
                 }
                 if ($params["money"]<0){
-                    $money = abs($params["money"]);
-                    Db::name("member")->where("id",$params["id"])->setDec($params["type"],$money);
+                    $money =abs($params["money"]);
+                    Db::name("member")->where("id",$params["id"])->fetchSql()->setDec($params["type"],$money);
+                    Db::name("history")->insert(
+                        [
+                            "uid"=>$params["id"],
+                            "money"=>"-".$params["money"],
+                            "type"=>"integrals",
+                            "option"    =>"expend",
+                            "createtime"=>time(),
+                            "remark"=>"减少收益"
+                        ]
+                    );
+
                 }
                 Db::commit();
             } catch (\Exception $e) {

@@ -11,7 +11,7 @@ class Invest extends BaseModel
     }
 
     public static function getUserRechargeMoney($uid){
-        return self::where(['uid' => $uid])->field('is_pay,money,remark,updatetime')->paginate();
+        return self::where(['uid' => $uid])->field('is_pay,money,remark,createtime,updatetime')->paginate();
     }
 
     public static function createInvest($data)

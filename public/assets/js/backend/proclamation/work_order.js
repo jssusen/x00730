@@ -42,6 +42,9 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'content', title: __('Content'),operate:false,formatter:function (value, row, index) {
                                 return    '<p style="width: 200px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">'+value+'</p>'
                             }},
+                        {field: 'reply_content', title:"工单回复",operate:false,formatter:function (value, row, index) {
+                                return    '<p style="width: 200px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">'+value+'</p>'
+                            }},
                         {field: 'createtime', title: '创建时间', operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
                         {field: 'updatetime', title: '更新时间', operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
                         {field: 'status', title: __('Status'), searchList: {"0":__('Status 0'),"1":__('Status 1')}, formatter: Table.api.formatter.status},

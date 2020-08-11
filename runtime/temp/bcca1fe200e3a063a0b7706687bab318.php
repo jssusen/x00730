@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:89:"G:\phpstudy\WWW\x00730\public/../application/admin\view\proclamation\work_order\edit.html";i:1597117171;s:65:"G:\phpstudy\WWW\x00730\application\admin\view\layout\default.html";i:1588765312;s:62:"G:\phpstudy\WWW\x00730\application\admin\view\common\meta.html";i:1588765312;s:64:"G:\phpstudy\WWW\x00730\application\admin\view\common\script.html";i:1588765312;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"G:\phpstudy\WWW\x00730\public/../application/admin\view\member\member\recharge.html";i:1595406532;s:65:"G:\phpstudy\WWW\x00730\application\admin\view\layout\default.html";i:1588765312;s:62:"G:\phpstudy\WWW\x00730\application\admin\view\common\meta.html";i:1588765312;s:64:"G:\phpstudy\WWW\x00730\application\admin\view\common\script.html";i:1588765312;}*/ ?>
 <!DOCTYPE html>
 <html lang="<?php echo $config['language']; ?>">
     <head>
@@ -50,57 +50,62 @@
                             <!-- END RIBBON -->
                             <?php endif; ?>
                             <div class="content">
-                                <form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+                                <form id="recharge-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
 
     <div class="form-group" style="display: none">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Uid'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2">id</label>
         <div class="col-xs-12 col-sm-8">
-            <input id="c-uid" data-rule="required" class="form-control" name="row[uid]" type="number" value="<?php echo htmlentities($row['uid']); ?>">
+            <input id="c-id" class="form-control" readonly name="row[id]" type="text" value="<?php echo htmlentities($row['id']); ?>">
         </div>
     </div>
-
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Content'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Realname'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <textarea  id="c-content" name="row[content]" type="text"  class="form-control"   readonly value="<?php echo htmlentities($row['content']); ?>"><?php echo htmlentities($row['content']); ?></textarea>
-
+            <input id="c-realname" class="form-control" readonly name="row[realname]" type="text" value="<?php echo htmlentities($row['realname']); ?>">
         </div>
     </div>
-
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2">工单回复只能回复一次</label>
+        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Mobile'); ?>:</label>
         <div class="col-xs-12 col-sm-8">
-            <textarea  id="c-reply_content" name="row[reply_content]" type="text"  class="form-control"   value="<?php echo htmlentities($row['reply_content']); ?>"><?php echo htmlentities($row['reply_content']); ?></textarea>
-
+            <input id="c-mobile" class="form-control" readonly name="row[mobile]" type="text" value="<?php echo htmlentities($row['mobile']); ?>">
         </div>
     </div>
-
 
 
 
     <div class="form-group">
-        <label class="control-label col-xs-12 col-sm-2"><?php echo __('Status'); ?>:</label>
+        <label class="control-label col-xs-12 col-sm-2">充值类型</label>
         <div class="col-xs-12 col-sm-8">
-            
-            <div class="radio">
-            <?php if(is_array($statusList) || $statusList instanceof \think\Collection || $statusList instanceof \think\Paginator): if( count($statusList)==0 ) : echo "" ;else: foreach($statusList as $key=>$vo): ?>
-            <label for="row[status]-<?php echo $key; ?>"><input id="row[status]-<?php echo $key; ?>" name="row[status]" type="radio" value="<?php echo $key; ?>" <?php if(in_array(($key), is_array($row['status'])?$row['status']:explode(',',$row['status']))): ?>checked<?php endif; ?> /> <?php echo $vo; ?></label> 
-            <?php endforeach; endif; else: echo "" ;endif; ?>
-            </div>
+
+            <select  id="c-type" class="form-control " name="row[type]" >
+                <?php if(is_array($typeList) || $typeList instanceof \think\Collection || $typeList instanceof \think\Paginator): if( count($typeList)==0 ) : echo "" ;else: foreach($typeList as $key=>$vo): ?>
+                <option value="<?php echo $key; ?>" <?php if(in_array(($key), explode(',',"0"))): ?>selected<?php endif; ?>><?php echo $vo; ?></option>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </select>
 
         </div>
     </div>
+
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-2">充值金额</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-money" class="form-control"  name="row[money]" type="number" value="" >
+        </div>
+    </div>
+
+
+
+
     <div class="form-group layer-footer">
         <label class="control-label col-xs-12 col-sm-2"></label>
         <div class="col-xs-12 col-sm-8">
-            <button type="submit" class="btn btn-success btn-embossed disabled"><?php echo __('OK'); ?></button>
+            <button type="submit" class="btn btn-success btn-embossed "><?php echo __('OK'); ?></button>
             <button type="reset" class="btn btn-default btn-embossed"><?php echo __('Reset'); ?></button>
         </div>
     </div>
 </form>
-
                             </div>
                         </div>
                     </div>

@@ -6,13 +6,28 @@ namespace app\apis\model;
 
 class History extends BaseModel
 {
+
+
     protected $name ="history";
     public function initialize(){
         parent::initialize();
     }
 
+    protected function getCreateTimeAttr($value){
+        $date = date("Y-m-d H:i:s",$value);
+        return $date;
+    }
+    protected function getUpdateTimeAttr($value){
+        $date = date("Y-m-d H:i:s",$value);
+        return $date;
+    }
+
+
+
+
+
     public static function findMoneyLogByUserId($uid){
-        return  self::where("uid",$uid)->field('money,type,remark,updatetime,option')->paginate();
+        return  self::where("uid",$uid)->field('money,type,remark,updatetime,option,createtime')->paginate();
     }
 
     public static function findMoneyLog($uid){

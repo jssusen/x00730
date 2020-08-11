@@ -59,7 +59,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         {field: 'collectionimage',operate:false,  title: __('Collectionimage'), events: Table.api.events.image, formatter: Table.api.formatter.image},
 
                         {field: 'money', title:"金额", operate:'BETWEEN'},
-                        {field: 'remark', title: __('Remark')},
+                        // {field: 'remark', title: __('Remark')},
                         {field: 'createtime', title: '申请时间', operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},
 
                         {field: 'updatetime', title: __('Updatetime'), operate:'RANGE', addclass:'datetimerange', formatter: Table.api.formatter.datetime},

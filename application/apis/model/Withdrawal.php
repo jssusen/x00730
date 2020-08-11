@@ -11,9 +11,19 @@ class Withdrawal extends \think\Model
     protected $createTime = 'createtime';
     protected $updateTime = 'updatetime';
 
+    protected function getCreateTimeAttr($value){
+        $date = date("Y-m-d H:i:s",$value);
+        return $date;
+    }
+    protected function getUpdateTimeAttr($value){
+        $date = date("Y-m-d H:i:s",$value);
+        return $date;
+    }
+
+
 
     public function getCash($uid){
-        return self::where(['uid' => $uid])->field('money,procedures_money,really_money,remark,money_position,is_pay,updatetime')->paginate();
+        return self::where(['uid' => $uid])->field('money,createtime,procedures_money,really_money,remark,money_position,is_pay,updatetime')->paginate();
     }
 
     public static function finDayWithrawal($uid)

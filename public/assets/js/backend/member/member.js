@@ -94,16 +94,16 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                             events: Table.api.events.operate,
                             formatter: Table.api.formatter.operate,
                             buttons: [
-                                // {
-                                //     name: 'detail',
-                                //     title: __('充值'),
-                                //     classname: 'btn btn-xs btn-primary btn-dialog',
-                                //     icon: 'fa fa-money',
-                                //     url: 'member/member/recharge',
-                                //     callback: function (data) {
-                                //         // Layer.alert("接收到回传数据：" + JSON.stringify(data), {title: "回传数据"});
-                                //     }
-                                // },
+                                {
+                                    name: 'detail',
+                                    title: __('充值'),
+                                    classname: 'btn btn-xs btn-primary btn-dialog',
+                                    icon: 'fa fa-money',
+                                    url: 'member/member/recharge',
+                                    callback: function (data) {
+                                        // Layer.alert("接收到回传数据：" + JSON.stringify(data), {title: "回传数据"});
+                                    }
+                                },
                                 // {
                                 //     name: 'createMatch',
                                 //     title: __('出场'),

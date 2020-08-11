@@ -5,6 +5,7 @@ namespace app\apis\model;
 
 
 use think\Db;
+use think\model\relation\BelongsTo;
 
 class Match extends BaseModel
 {
@@ -89,22 +90,6 @@ class Match extends BaseModel
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function getTypeTextAttr($value, $data)
     {
         $value = $value ? $value : (isset($data['type']) ? $data['type'] : '');
@@ -139,9 +124,13 @@ class Match extends BaseModel
             ->select();
         return $list;
     }
+    public  function ItcImg(){
+       return $this->belongsTo('\app\admin\model\dog\Dog', 'dog_id')->alias("g")->bind("image");
+    }
+
 
     public static function myOrder($uid,$page=0){
-      $list =  self::where("uid",$uid)->page($page,5)->select();
+      $list =  self::with("ItcImg")->where("uid",$uid)->page($page,5)->select();
       return $list;
     }
 

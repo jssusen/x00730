@@ -249,7 +249,7 @@ class Dog extends BaseController
                 (new Member())->where(['id'=>$data['uid']])->update(["is_first" => 1]);//推广奖励，仅一次
             }
         }
-        return $this->success('创建成功');
+        return $this->success('下单成功');
 
     }
 
